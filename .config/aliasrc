@@ -24,7 +24,7 @@ ex ()
   fi
 }
 
-export EDITOR=nvim
+export EDITOR=lvim
 
 alias pacman-update='sudo pacman-mirrors --geoip'
 
@@ -78,10 +78,14 @@ alias nvim='lvim' # comment out if no lunarvim is available
 alias vim='nvim'
 alias vi='nvim'
 alias nvimdiff='lvim -d'
-alias gds-start='sudo systemctl start openvpn-client@gds'
-alias gds-stop='sudo systemctl stop openvpn-client@gds'
+alias netcup-start='sudo systemctl start wg-quick@netcup'
+alias netcup-stop='sudo systemctl stop wg-quick@netcup'
 
 alias fzfb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+aliasadd() {
+    echo "$*" >> ~/.config/aliasrc
+}
 
 # Git stuff
 alias glt='git log --oneline --decorate --graph --all'
@@ -101,9 +105,8 @@ alias gp=gitpush
 alias gu=gitupdate
 
 # Dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 
 alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-
