@@ -108,5 +108,5 @@ source /usr/share/fzf/completion.zsh 2>/dev/null
 ##-> DreymaR's SetXKB.sh: Activate layout
 setxkbmap -model 'pc105aw-sl' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
 ##<- DreymaR's SetXKB.sh
-eval "$(atuin init zsh)"
+eval "$(atuin init --disable-ctrl-r zsh)"
 source /usr/share/nvm/init-nvm.sh
