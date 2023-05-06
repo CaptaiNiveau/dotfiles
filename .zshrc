@@ -42,6 +42,11 @@ export KEYTIMEOUT=1
 # Use vim keys in tab complete menu:
 bindkey -v '^?' backward-delete-char
 
+# Fix home, end and del keys
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
