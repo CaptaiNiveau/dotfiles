@@ -87,6 +87,8 @@ alias gu=gitupdate
 
 # Dotfiles
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias clt='config log --oneline --decorate --graph --all'
+alias clta='config log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 
 alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
