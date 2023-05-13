@@ -1,4 +1,4 @@
-export EDITOR=lvim
+export EDITOR=nvim
 
 alias pacman-update='sudo pacman-mirrors --geoip'
 
@@ -48,10 +48,10 @@ alias unexport='unset'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias nvim='lvim' # comment out if no lunarvim is available
+# alias nvim='lvim' # comment out if no lunarvim is available
 alias vim='nvim'
 alias vi='nvim'
-alias nvimdiff='lvim -d'
+# alias nvimdiff='lvim -d'
 alias netcup-start='sudo systemctl start wg-quick@netcup'
 alias netcup-stop='sudo systemctl stop wg-quick@netcup'
 
