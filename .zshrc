@@ -17,7 +17,8 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Luke's config for the Zoomer Shell
+# enables comments in command prompt, like 'ls #command to list files'
+setopt interactivecomments
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -86,6 +87,29 @@ setopt extended_glob
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+# add ~/.local/bin to PATH
+export PATH=$PATH:/home/captain/.local/bin
+
+# make nvim default
+export EDITOR=nvim
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh # 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh # 2>/dev/null
+source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh # 2>/dev/null
+source /usr/share/autojump/autojump.zsh # 2>/dev/null
+source /usr/share/fzf/completion.zsh # 2>/dev/null
+
+##-> DreymaR's SetXKB.sh: Activate layout
+setxkbmap -model 'pc105aw-sl' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
+##<- DreymaR's SetXKB.sh
+eval "$(atuin init --disable-ctrl-r zsh)"
+# source /usr/share/nvm/init-nvm.sh
 
 # ALT-C: cd into the selected directory
 # CTRL-T: Place the selected file path in the command line
