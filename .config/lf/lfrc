@@ -4,6 +4,10 @@ set shell sh
 # add icons
 set icons true
 
+# change to custom previewer in script
+set previewer ~/.config/lf/filepreview.sh
+#set previewer bat --paging=never --style=numbers --terminal-width $(($2-5)) -f "$1"
+
 # show hidden files
 set hidden true
 
