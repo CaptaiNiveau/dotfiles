@@ -101,6 +101,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh # 2>/dev/null
 source /usr/share/autojump/autojump.zsh # 2>/dev/null
 source /usr/share/fzf/completion.zsh # 2>/dev/null
+source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh # 2>/dev/null
+source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards # 2>/dev/null
 
 ##-> DreymaR's SetXKB.sh: Activate layout
 setxkbmap -model 'pc105aw-sl' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
