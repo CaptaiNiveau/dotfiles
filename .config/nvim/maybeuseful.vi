@@ -1,0 +1,6 @@
+# Maybe I'll need some weird scripts for debugging purpose, that's what this file is supposed to contain
+
+## find out all mappings and write them to a file
+:redir! > vim_keys.txt
+:silent verbose map
+:redir END
