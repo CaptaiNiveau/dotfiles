@@ -29,7 +29,15 @@ case "$MIME" in
         unzip -l "$1"
         ;;
     # any plain text file that doesn't have a specific handler
-    *text/plain*|*text/x-shellscript*|*text/x-c++*|*text/x-c*)
+    # *text/plain*|*text/x-shellscript*|*text/x-c++*|*text/x-c*|*application/javascript*)
+    *text/plain*\
+    |*text/x-*\
+    |*application/*\
+    |*text/x-shellscript*\
+    |*text/x-c++*\
+    |*text/x-c*\
+    |*application/javascript*\
+    |*text/x-java)
         # return false to always repaint, in case terminal size changes
         bat --force-colorization --paging=never --style=changes,numbers \
             --terminal-width $(($2 - 3)) "$1" && false
