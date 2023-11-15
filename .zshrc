@@ -92,6 +92,9 @@ bindkey '^e' edit-command-line
 # add ~/.local/bin to PATH
 export PATH=$PATH:/home/captain/.local/bin
 
+# add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
+export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
+
 # make nvim default
 export EDITOR=nvim
 
