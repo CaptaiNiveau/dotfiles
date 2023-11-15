@@ -24,5 +24,6 @@ return require('packer').startup(function()
   use 'MunifTanjim/nui.nvim'
 
   use 'folke/noice.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 end)
 
