@@ -3,17 +3,18 @@
   font-family: "CaskaydiaCove Nerd Font";
 }
 
-.bar {
-  margin: 10 8 0 8;
-}
-
 .popup {
   color: #50fa7b;
 }
 
 .bar, tooltip {
-  background-color: #282a36;
+  background-color: rgba(40, 42, 54, 0.8);
   border-radius: 16px;
+}
+
+.bar {
+  background-color: rgba(40, 42, 54, 0.8);
+  margin: 10 8 0 8;
 }
 
 .right {
@@ -77,7 +78,6 @@ highlight {
 
 .audio-icon {
   font-size: 24px;
-  margin-right: 8px;
   color: #ffb86c;
 }
 
@@ -306,8 +306,9 @@ highlight {
   }
 }
 .bt-bg {
-  background-color: #282a36;
+  background-color: rgba(40, 42, 54, 0.8);
   border-radius: 16px;
+  margin-right: 8px;
 }
 
 .bt-header-box {
