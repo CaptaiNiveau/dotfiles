@@ -1,0 +1,8 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+    # pager: echo
+    # externalDiffCommand: difft --color=always --display=inline
+    # externalDiffCommand: less
+    # externalDiffCommand: echo
