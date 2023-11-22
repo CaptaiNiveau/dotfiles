@@ -48,10 +48,10 @@ UseHyprlandIPC: true
 CenterTime: true
 
 # Adds a audio input(aka. microphone) widget
-AudioInput: true
+AudioInput: false
 
 # Sets the audio slider to be on reveal (Just like the sensors) when true. Only affects the bar.
-AudioRevealer: true
+AudioRevealer: false
 
 # Sets the rate of change of the slider on each scroll. In Percent
 AudioScrollSpeed: 5
@@ -86,9 +86,8 @@ EnableSNI: true
 SNIIconSize: *, 25
 # Explicitly make OBS a bit smaller than default
 SNIIconSize: OBS, 23
-# Nudges the Discord icon a bit down
-SNIPaddingTop: WebCord, 0
-SNIPaddingTop: Tidal-hifi, 0
+# Nudges the Tidal icon a bit down
+#SNIPaddingTop: Tidal-hifi, 0
 
 # These set the range for the network widget. The widget changes colors at six intervals:
 #    - Below Min...Bytes ("under")
