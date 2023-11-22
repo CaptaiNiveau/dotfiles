@@ -8,13 +8,24 @@
 }
 
 .bar, tooltip {
-  background-color: rgba(40, 42, 54, 0.8);
+  background-color: rgba(40, 42, 54, 0.5);
   border-radius: 16px;
 }
 
 .bar {
-  background-color: rgba(40, 42, 54, 0.8);
+  background-color: rgba(40, 42, 54, 0.5);
   margin: 10 8 0 8;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.bar > .horizontal {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+GtkBox {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .right {
@@ -306,7 +317,7 @@ highlight {
   }
 }
 .bt-bg {
-  background-color: rgba(40, 42, 54, 0.8);
+  background-color: rgba(40, 42, 54, 0.5);
   border-radius: 16px;
   margin-right: 8px;
 }
@@ -378,5 +389,3 @@ highlight {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
-
-/*# sourceMappingURL=style.css.map */
