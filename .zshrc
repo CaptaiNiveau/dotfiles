@@ -24,8 +24,8 @@ autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
@@ -80,6 +80,9 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+# enable cool glob options
+setopt extended_glob
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -97,8 +100,8 @@ bindkey '^P'  fzy-proc-widget
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-# add ~/.local/bin to PATH
-export PATH=$PATH:/home/captain/.local/bin
+# add ~/.local/custom to PATH
+export PATH=$PATH:/home/captain/.local/custom
 
 # make lvim default
 export EDITOR=lvim
