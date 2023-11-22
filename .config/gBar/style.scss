@@ -1,6 +1,6 @@
 // colorscheme(dracula)
 // See https://github.com/dracula/dracula-theme/blob/master/LICENSE or dracula/LICENSE for the license
-$bg: rgba(40, 42, 54, 0.8);
+$bg: rgba(40, 42, 54, 0.5);
 $fg: #f8f8f2;
 $inactive: #44475a;
 $darkblue: #6272a4;
@@ -40,6 +40,17 @@ $textsize: 16px;
 .bar {
     background-color: $bg;
     margin: 10 8 0 8;
+    background-color: rgba(0,0,0,0);
+}
+
+.bar > .horizontal {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+GtkBox {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 10px; 
 }
 
 .right {
