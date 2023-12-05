@@ -96,10 +96,13 @@ bindkey '^e' edit-command-line
 export PATH=$PATH:/home/captain/.local/bin
 
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
-export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
 
 # make nvim default
 export EDITOR=nvim
+
+# force less as pager
+export PAGER=/bin/less
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh # 2>/dev/null
@@ -136,11 +139,12 @@ export PATH=$PATH:/home/captain/.local/custom
 export EDITOR=lvim
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh 2>/dev/null
-source /usr/share/autojump/autojump.zsh 2>/dev/null
-source /usr/share/fzf/completion.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
+source /usr/share/autojump/autojump.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 
 ##-> DreymaR's SetXKB.sh: Activate layout
 setxkbmap -model 'pc105awide' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
