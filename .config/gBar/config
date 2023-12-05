@@ -22,12 +22,15 @@ ExitCommand: killall Hyprland
 # The folder, where the battery sensors reside
 BatteryFolder: /sys/class/power_supply/BAT1
 
+# The location of the bar
+Location: T
+
 # Overrides the icon of the nth (in this case the first) workspace
-WorkspaceSymbol-1: 󰈹
-WorkspaceSymbol-2: 
-WorkspaceSymbol-3: 
-WorkspaceSymbol-4: 󰝚
-WorkspaceSymbol-5: 󰙯
+WorkspaceSymbol: 1, 󰈹
+WorkspaceSymbol: 2, 
+WorkspaceSymbol: 3, 
+WorkspaceSymbol: 4, 󰝚
+WorkspaceSymbol: 5, 󰙯
 
 # The default symbol for the workspaces
 DefaultWorkspaceSymbol: 
@@ -97,6 +100,6 @@ SNIIconSize: OBS, 23
 #    - Between ]75%;100%]. 0% = Min...Bytes; 100% = Max...Bytes ("high")
 #    - Above Max...Bytes ("over")
 MinDownloadBytes: 0
-MaxDownloadBytes: 52428800 # 50 * 1024 * 1024 = 50 MiB
+MaxDownloadBytes: 104857600 # 100 * 1024 * 1024 = 100 MiB
 MinUploadBytes:   0
-MaxUploadBytes:   20971520    # 20 * 1024 * 1024 = 20 MiB
+MaxUploadBytes:   52428800 # 50 * 1024 * 1024 = 50 MiB
