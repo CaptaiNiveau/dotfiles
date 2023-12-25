@@ -2,7 +2,6 @@
 plugins = [
   "scratchpads",
   "lost_windows",
-  "monitors",
   "shift_monitors",
   "toggle_dpms",
   "magnify",
@@ -37,17 +36,36 @@ command = "kitty --class kitty-dropterm"
 class = "kitty-dropterm"
 size = "75% 60%"
 
+[scratchpads.termleft]
+animation = "fromLeft"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+# position = "40% 30%"
+lazy = true
+size = "47% 90%"
+
+[scratchpads.termright]
+animation = "fromRight"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+# position = "50% 20%"
+# margin = 100
+lazy = true
+size = "47% 90%"
+
 [scratchpads.volume]
 animation = "fromRight"
 command = "pavucontrol"
 class = "pavucontrol"
 lazy = true
+size = "47% 90%"
+
+[scratchpads.workinfo]
+animation = "fromRight"
+command = "firefox --no-remote --kiosk -P work --name firefox-work ~/Downloads/LöschweitergabeAnnotated.pdf"
+class = "firefox-work"
+lazy = true
 size = "40% 90%"
-unfocus = "hide"
 
 [monitors]
 unknown = "wlrlui"
-
-[monitors.placement]
-"Acer".leftOf = "HDMI-0"
-"Sony".topOf = "eDP-1"

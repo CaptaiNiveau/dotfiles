@@ -25,8 +25,8 @@ autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
@@ -85,34 +85,6 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
-# add ~/.local/bin to PATH
-export PATH=$PATH:/home/captain/.local/bin
-
-# add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
-export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
-
-# make nvim default
-export EDITOR=nvim
-
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh # 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh # 2>/dev/null
-source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh # 2>/dev/null
-source /usr/share/autojump/autojump.zsh # 2>/dev/null
-source /usr/share/fzf/completion.zsh # 2>/dev/null
-source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh # 2>/dev/null
-source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards # 2>/dev/null
-
-##-> DreymaR's SetXKB.sh: Activate layout
-setxkbmap -model 'pc105aw-sl' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
-##<- DreymaR's SetXKB.sh
-eval "$(atuin init --disable-ctrl-r zsh)"
-# source /usr/share/nvm/init-nvm.sh
-
 # ALT-C: cd into the selected directory
 # CTRL-T: Place the selected file path in the command line
 # CTRL-R: Place the selected command from history in the command line
@@ -121,3 +93,35 @@ bindkey '\ec' fzy-cd-widget
 bindkey '^T'  fzy-file-widget
 bindkey '^R'  fzy-history-widget
 bindkey '^P'  fzy-proc-widget
+
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+# add ~/.local/bin to PATH
+export PATH=$PATH:/home/lap/.local/bin
+
+# add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
+export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
+
+# make lvim default
+export EDITOR=lvim
+
+# force less as pager
+export PAGER=/bin/less
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
+source /usr/share/autojump/autojump.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
+source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh # 2>/dev/null
+source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards # 2>/dev/null
+
+##-> DreymaR's SetXKB.sh: Activate layout
+setxkbmap -model 'pc105awide' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
+##<- DreymaR's SetXKB.sh
+eval "$(atuin init --disable-ctrl-r zsh)"
+source /usr/share/nvm/init-nvm.sh

@@ -7,18 +7,6 @@
 # - After the ':'
 # - After the value
 
-# The following three options control the ordering of the widgets.
-# Reordering can cause slight margin inconsistencies,
-# so it is recommend to only make minor adjustments to the default layout.
-# Adding the same widget multiple times to the layout is *not* supported and will cause issues.
-
-# Widgets to show on the left side
-WidgetsLeft: [Workspaces]
-# Widgets to center
-WidgetsCenter: [Time]
-# Widgets to display on the right side
-WidgetsRight: [Tray, Packages, Audio, Brightness, Bluetooth, Network, Disk, VRAM, GPU, RAM, CPU, Battery, Power]
-
 # The CPU sensor to use
 CPUThermalZone: /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
 
@@ -34,12 +22,15 @@ ExitCommand: killall Hyprland
 # The folder, where the battery sensors reside
 BatteryFolder: /sys/class/power_supply/BAT1
 
+# The location of the bar
+Location: T
+
 # Overrides the icon of the nth (in this case the first) workspace
-WorkspaceSymbol-1: 󰈹
-WorkspaceSymbol-2: 
-WorkspaceSymbol-3: 
-WorkspaceSymbol-4: 󰝚
-WorkspaceSymbol-5: 󰙯
+WorkspaceSymbol: 1, 󰈹
+WorkspaceSymbol: 2, 
+WorkspaceSymbol: 3, 
+WorkspaceSymbol: 4, 󰝚
+WorkspaceSymbol: 5, 󰙯
 
 # The default symbol for the workspaces
 DefaultWorkspaceSymbol: 

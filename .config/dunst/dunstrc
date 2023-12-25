@@ -1,4 +1,3 @@
-# See dunst(5) for all configuration options
 
 [global]
     ### Display ###
@@ -447,11 +446,10 @@
 #    summary = *says*
 #    urgency = critical
 #
-[Spotify]
-    appname = Spotify
-    # padding = 0
-    # frame_color = "#00000000"
-
+[KDE-Connect-Spotify]
+    appname = "KDE Connect"
+    summary = "Spotify"
+    skip_display = yes
 
 #[stack-volumes]
 #    appname = "some_volume_notifiers"
