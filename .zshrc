@@ -85,15 +85,6 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# ALT-C: cd into the selected directory
-# CTRL-T: Place the selected file path in the command line
-# CTRL-R: Place the selected command from history in the command line
-# CTRL-P: Place the selected process ID in the command line
-bindkey '\ec' fzy-cd-widget
-bindkey '^T'  fzy-file-widget
-bindkey '^R'  fzy-history-widget
-bindkey '^P'  fzy-proc-widget
-
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
@@ -105,7 +96,7 @@ export PATH=$PATH:/home/lap/.local/bin
 export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
 
 # make lvim default
-export EDITOR=lvim
+export EDITOR=nvim
 
 # force less as pager
 export PAGER=/bin/less
@@ -120,8 +111,16 @@ source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh # 2>/dev/null
 source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards # 2>/dev/null
 
+# ALT-C: cd into the selected directory
+# CTRL-T: Place the selected file path in the command line
+# CTRL-R: Place the selected command from history in the command line
+# CTRL-P: Place the selected process ID in the command line
+bindkey '\ec' fzy-cd-widget
+bindkey '^T'  fzy-file-widget
+bindkey '^R'  fzy-history-widget
+bindkey '^P'  fzy-proc-widget
+
 ##-> DreymaR's SetXKB.sh: Activate layout
 setxkbmap -model 'pc105awide' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
 ##<- DreymaR's SetXKB.sh
 eval "$(atuin init --disable-ctrl-r zsh)"
-source /usr/share/nvm/init-nvm.sh
