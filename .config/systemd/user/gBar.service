@@ -1,0 +1,9 @@
+[Unit]
+Description=gBar
+
+[Service]
+ExecStart=/usr/bin/gBar bar 0
+Restart=always
+
+[Install]
+WantedBy=default.target
