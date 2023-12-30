@@ -26,6 +26,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       750px;
+    height:                      523px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -97,7 +98,7 @@ listview {
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                true;
+    fixed-height:                false;
     fixed-columns:               false;
     
     spacing:                     0px;
