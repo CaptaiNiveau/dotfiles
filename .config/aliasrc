@@ -96,3 +96,6 @@ alias lazyconfig='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+
+# Hyprland
+alias hyprconf='vi ~/.config/hypr/hyprland.conf'
