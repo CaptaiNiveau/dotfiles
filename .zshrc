@@ -72,7 +72,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    lfub -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
@@ -94,6 +94,7 @@ export PATH=$PATH:/home/lap/.local/bin
 
 # add ~/.local/custom to PATH
 export PATH=$PATH:/home/lap/.local/custom
+export PATH=$PATH:/home/lap/.local/custom/ueberzug
 
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
 export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
