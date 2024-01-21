@@ -72,7 +72,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    lfub -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
@@ -80,9 +80,6 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
-
-# enable cool glob options
-setopt extended_glob
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -93,13 +90,17 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # add ~/.local/bin to PATH
-export PATH=$PATH:/home/captain/.local/bin
+export PATH=$PATH:/home/lap/.local/bin
+
+# add ~/.local/custom to PATH
+export PATH=$PATH:/home/lap/.local/custom
+export PATH=$PATH:/home/lap/.local/custom/ueberzug
 
 # add ~/.local/custom to PATH
 export PATH=$PATH:/home/captain/.local/custom
 
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
-export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
 
 # add dotnet tools to PATH
 export PATH=$PATH:/home/captain/.dotnet/tools
@@ -116,6 +117,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
 source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
 source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards
 
@@ -134,7 +136,3 @@ bindkey '\ec' fzy-cd-widget
 bindkey '^T'  fzy-file-widget
 bindkey '^R'  fzy-history-widget
 bindkey '^P'  fzy-proc-widget
-
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"

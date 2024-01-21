@@ -6,6 +6,10 @@ set shell sh
 # add icons
 set icons true
 
+# change to custom previewer in script
+set previewer ~/.config/lf/filepreview.sh
+#set previewer bat --paging=never --style=numbers --terminal-width $(($2-5)) -f "$1"
+
 # show hidden files
 set hidden true
 
@@ -73,7 +77,7 @@ cmd trash %set -f; mv $fx ~/.trash
 
 # use '<delete>' key for either 'trash' or 'delete' command
 # map <delete> trash
-# map <delete> delete
+map <delete> delete
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)

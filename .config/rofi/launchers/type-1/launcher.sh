@@ -12,9 +12,11 @@
 ## style-11    style-12    style-13    style-14    style-15
 
 dir="$HOME/.config/rofi/launchers/type-1"
-theme='style-1'
+theme='style-'
 
 ## Run
-rofi \
+for i in {1..15}; 
+do rofi \
     -show drun \
-    -theme ${dir}/${theme}.rasi
+    -theme ${dir}/${theme}${i}.rasi; 
+done
