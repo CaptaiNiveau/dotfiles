@@ -90,17 +90,17 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # add ~/.local/bin to PATH
-export PATH=$PATH:/home/lap/.local/bin
+export PATH=$PATH:/home/captain/.local/bin
 
 # add ~/.local/custom to PATH
-export PATH=$PATH:/home/lap/.local/custom
-export PATH=$PATH:/home/lap/.local/custom/ueberzug
+export PATH=$PATH:/home/captain/.local/custom
+export PATH=$PATH:/home/captain/.local/custom/ueberzug
 
 # add ~/.local/custom to PATH
 export PATH=$PATH:/home/captain/.local/custom
 
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
-export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
 
 # add dotnet tools to PATH
 export PATH=$PATH:/home/captain/.dotnet/tools
