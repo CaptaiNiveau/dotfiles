@@ -101,3 +101,5 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # Hyprland
 alias hyprconf='vi ~/.config/hypr/hyprland.conf'
+alias aliasrc='vi ~/.config/aliasrc'
+alias gconf="vi ~/.config/gBar/config"
