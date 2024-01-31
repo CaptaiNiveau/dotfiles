@@ -42,7 +42,7 @@ command = "kitty --class kitty-dropterm"
 class = "kitty-dropterm"
 # position = "40% 30%"
 lazy = true
-size = "47% 90%"
+size = "45% 90%"
 
 [scratchpads.termright]
 animation = "fromRight"
@@ -51,7 +51,7 @@ class = "kitty-dropterm"
 # position = "50% 20%"
 # margin = 100
 lazy = true
-size = "47% 90%"
+size = "45% 90%"
 
 [scratchpads.volume]
 animation = "fromRight"
