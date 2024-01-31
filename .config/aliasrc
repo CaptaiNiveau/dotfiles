@@ -60,6 +60,10 @@ alias netcup-stop='sudo systemctl stop wg-quick@netcup'
 
 alias fzfb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
+mkcd() { 
+    mkdir "$*" && cd "$1"
+}
+
 aliasadd() {
     echo "$*" >> ~/.config/aliasrc
 }
@@ -99,3 +103,5 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # Hyprland
 alias hyprconf='vi ~/.config/hypr/hyprland.conf'
+alias aliasrc='vi ~/.config/aliasrc'
+alias gconf="vi ~/.config/gBar/config"
