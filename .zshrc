@@ -123,7 +123,6 @@ source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
-source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 #source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 
