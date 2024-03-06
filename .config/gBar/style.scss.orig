@@ -40,7 +40,7 @@ $textsize: 16px;
 .bar {
     background-color: $bg;
 <<<<<<< HEAD
-    margin: 10 8 0 8;
+    margin: 10 2 0 2;
 =======
     margin: 15 8 0 8;
 >>>>>>> desktop
