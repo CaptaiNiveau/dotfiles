@@ -57,6 +57,8 @@ alias netcup-start='sudo systemctl start wg-quick@netcup'
 alias netcup-stop='sudo systemctl stop wg-quick@netcup'
 
 alias fzfb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias fzfd="fd . | fzf"
+alias fzfdb="fd . | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 mkcd() { 
     mkdir "$*" && cd "$1"

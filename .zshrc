@@ -81,6 +81,10 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+# use fd for default fzf command
+export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -120,6 +124,8 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
 source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards
+source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
+#source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 
 ##-> DreymaR's SetXKB.sh: Activate layout
 setxkbmap -model 'pc105awide' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
@@ -132,7 +138,9 @@ bindkey -M vicmd '^[[A' up-line-or-history
 # CTRL-T: Place the selected file path in the command line
 # CTRL-R: Place the selected command from history in the command line
 # CTRL-P: Place the selected process ID in the command line
-bindkey '\ec' fzy-cd-widget
-bindkey '^T'  fzy-file-widget
-bindkey '^R'  fzy-history-widget
-bindkey '^P'  fzy-proc-widget
+#bindkey '\ec' fzy-cd-widget
+#bindkey '^T'  fzy-file-widget
+#bindkey '^R'  fzy-history-widget
+#bindkey '^P'  fzy-proc-widget
+
+#bindkey '^I' fzf_completion
