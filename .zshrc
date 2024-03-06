@@ -102,6 +102,9 @@ export PATH=$PATH:/home/lap/.local/custom/ueberzug
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
 export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
 
+# add dotnet tools to PATH
+export PATH=$PATH:/home/lap/.dotnet/tools
+
 # make lvim default
 export EDITOR=nvim
 
@@ -111,11 +114,13 @@ export PAGER=/bin/less
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-#source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
 source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
+
+eval "$(atuin init --disable-ctrl-r zsh)"
+bindkey -M vicmd '^[[A' up-line-or-history
 
 # ALT-C: cd into the selected directory
 # CTRL-T: Place the selected file path in the command line
