@@ -81,6 +81,9 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+# TheFuck
+eval $(thefuck --alias)
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -108,12 +111,11 @@ export PAGER=/bin/less
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
+#source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
 source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
-source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh # 2>/dev/null
-source /usr/share/zsh/plugins/forgit/completions/git-forgit.zsh afterwards # 2>/dev/null
+source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
 
 # ALT-C: cd into the selected directory
 # CTRL-T: Place the selected file path in the command line
@@ -128,3 +130,4 @@ bindkey '^P'  fzy-proc-widget
 setxkbmap -model 'pc105awide' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
 ##<- DreymaR's SetXKB.sh
 eval "$(atuin init --disable-ctrl-r zsh)"
+eval "$(zoxide init zsh)"
