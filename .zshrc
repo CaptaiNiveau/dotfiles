@@ -72,7 +72,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lfub -last-dir-path="$tmp" "$@"
+    lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
@@ -97,23 +97,34 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # add ~/.local/bin to PATH
-export PATH=$PATH:/home/lap/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # add ~/.local/custom to PATH
-export PATH=$PATH:/home/lap/.local/custom
-export PATH=$PATH:/home/lap/.local/custom/ueberzug
+export PATH=$PATH:$HOME/.local/custom
+export PATH=$PATH:$HOME/.local/custom/ueberzug
+
+# add ~/synch/scripts to PATH
+export PATH=$PATH:$HOME/synch/scripts
 
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
-export PATH=$PATH:/home/lap/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts
 
 # add dotnet tools to PATH
-export PATH=$PATH:/home/lap/.dotnet/tools
+export PATH=$PATH:$HOME/.dotnet/tools
+
+# add doom emacs to PATH
+export PATH=$PATH:$HOME/.config/emacs/bin
 
 # make lvim default
 export EDITOR=nvim
 
 # force less as pager
 export PAGER=/bin/less
+
+# zig zvm stuff
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
@@ -122,11 +133,9 @@ source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
+source /usr/share/zsh/site-functions/_git-forgit
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 
-##-> DreymaR's SetXKB.sh: Activate layout
-setxkbmap -model 'pc105awide' -layout 'us' -variant 'cmk_ed_us' -option'' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' >/dev/null 2>/dev/null
-##<- DreymaR's SetXKB.sh
 eval "$(atuin init --disable-ctrl-r zsh)"
 bindkey -M vicmd '^[[A' up-line-or-history
 
@@ -134,3 +143,6 @@ bindkey -M vicmd '^[[A' up-line-or-history
 # CTRL-T: Place the selected file path in the command line
 # CTRL-R: Place the selected command from history in the command line
 # CTRL-P: Place the selected process ID in the command line
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
