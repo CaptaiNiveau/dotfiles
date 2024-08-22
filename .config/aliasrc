@@ -58,8 +58,11 @@ alias netcup-stop='sudo systemctl stop wg-quick@netcup'
 
 alias cat="bat -pp"
 alias fzfb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-alias fzfd="fd . | fzf"
 alias fzfdb="fd . | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+fcd() {
+    cd "$(dirname "$(fzf)")"
+}
 
 mkcd() { 
     mkdir "$*" && cd "$1"
@@ -104,5 +107,8 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # Hyprland
 alias hyprconf='vi ~/.config/hypr/hyprland.conf'
+alias pyprconf='vi ~/.config/hypr/pyprland.toml'
+alias paprconf='vi ~/.config/hypr/hyprpaper.conf'
 alias aliasrc='vi ~/.config/aliasrc'
 alias gconf="vi ~/.config/gBar/config"
+alias gscssconf="vi ~/.config/gBar/style.scss"
