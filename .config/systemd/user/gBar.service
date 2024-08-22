@@ -2,7 +2,7 @@
 Description=gBar
 
 [Service]
-ExecStart=/usr/bin/gBar bar 0
+ExecStart=/home/captain/git/gBar/build/gBar bar 0
 Restart=always
 
 [Install]

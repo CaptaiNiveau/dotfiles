@@ -1,6 +1,6 @@
 // colorscheme(dracula)
 // See https://github.com/dracula/dracula-theme/blob/master/LICENSE or dracula/LICENSE for the license
-$bg: rgba(40, 42, 54, 0.5);
+$bg:  rgba(40, 42, 54, 0.5);
 $fg: #f8f8f2;
 $inactive: #44475a;
 $darkblue: #6272a4;
@@ -39,7 +39,7 @@ $textsize: 16px;
 
 .bar {
     background-color: $bg;
-    margin: 15 8 0 8;
+    margin: 15 18 0 18;
     background-color: rgba(0,0,0,0);
 }
 
@@ -53,8 +53,16 @@ GtkBox {
   border-radius: 10px; 
 }
 
-.right {
-    border-radius: 16px;
+.left {
+    padding: 0 4 0 8;
+}
+
+.center {
+    padding: 0 20;
+}
+
+.bar > .right {
+    padding: 0 2;
 }
 
 .time-text {
