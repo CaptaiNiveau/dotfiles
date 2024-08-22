@@ -58,7 +58,7 @@ size = "45% 90%"
 [scratchpads.volume]
 animation = "fromRight"
 command = "pavucontrol"
-class = "pavucontrol"
+class = "org.pulseaudio.pavucontrol"
 lazy = true
 size = "47% 90%"
 
