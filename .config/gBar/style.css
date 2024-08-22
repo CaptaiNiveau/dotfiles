@@ -14,7 +14,9 @@
 
 .bar {
   background-color: rgba(40, 42, 54, 0.5);
-  margin: 10 2 0 2;
+  margin: 10 14 0 14;
+  padding: 0;
+  border-radius: 10px;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -28,8 +30,16 @@ GtkBox {
   border-radius: 10px;
 }
 
-.right {
-  border-radius: 16px;
+.left {
+  padding: 0 4 0 8;
+}
+
+.center {
+  padding: 0 20;
+}
+
+.bar > .right {
+  padding: 0 2;
 }
 
 .time-text {
@@ -64,7 +74,7 @@ trough {
   border-radius: 3px;
   border-width: 1px;
   border-style: none;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
   min-width: 4px;
   min-height: 4px;
 }
@@ -93,7 +103,7 @@ highlight {
 }
 
 .audio-volume trough {
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
 }
 .audio-volume slider {
   background-color: transparent;
@@ -108,7 +118,7 @@ highlight {
 }
 
 .mic-volume trough {
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
 }
 .mic-volume slider {
   background-color: transparent;
@@ -145,7 +155,7 @@ highlight {
 
 .disk-util-progress {
   color: #bd93f9;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
   font-size: 16px;
 }
 
@@ -156,7 +166,7 @@ highlight {
 
 .vram-util-progress {
   color: #ffb86c;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
 }
 
 .vram-data-text {
@@ -166,7 +176,7 @@ highlight {
 
 .ram-util-progress {
   color: #f1fa8c;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
 }
 
 .ram-data-text {
@@ -176,7 +186,7 @@ highlight {
 
 .gpu-util-progress {
   color: #8be9fd;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
 }
 
 .gpu-data-text {
@@ -186,7 +196,7 @@ highlight {
 
 .cpu-util-progress {
   color: #50fa7b;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
   font-size: 16px;
 }
 
@@ -197,7 +207,7 @@ highlight {
 
 .battery-util-progress {
   color: #ff79c6;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
   font-size: 16px;
 }
 
@@ -212,7 +222,7 @@ highlight {
 }
 
 .network-up-under {
-  color: #44475a;
+  color: rgba(68, 71, 90, 0.3);
 }
 
 .network-up-low {
@@ -236,7 +246,7 @@ highlight {
 }
 
 .network-down-under {
-  color: #44475a;
+  color: rgba(68, 71, 90, 0.3);
 }
 
 .network-down-low {
@@ -260,7 +270,7 @@ highlight {
 }
 
 .ws-dead {
-  color: #44475a;
+  color: rgba(68, 71, 90, 0.3);
   font-size: 16px;
 }
 
@@ -363,7 +373,7 @@ highlight {
 
 .bt-close {
   color: #ff5555;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
   border-radius: 16px;
   padding: 0px 8px 0px 7px;
   margin: 0px 0px 0px 8px;
@@ -371,7 +381,7 @@ highlight {
 
 .bt-scan {
   color: #f1fa8c;
-  background-color: #44475a;
+  background-color: rgba(68, 71, 90, 0.3);
   border-radius: 16px;
   padding: 2px 11px 0px 7px;
   margin: 0px 0px 0px 10px;
