@@ -79,7 +79,17 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+#bindkey -s '^o' 'lfcd\n'
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+bindkey -s '^o' 'yy\n'
 
 # TheFuck
 eval $(thefuck --alias)
@@ -115,6 +125,9 @@ export PATH=$PATH:$HOME/.dotnet/tools
 # add doom emacs to PATH
 export PATH=$PATH:$HOME/.config/emacs/bin
 
+# add go binaries to PATH
+export PATH=$PATH:/home/captain/go/bin
+
 # make lvim default
 export EDITOR=nvim
 
@@ -135,6 +148,8 @@ source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
 source /usr/share/zsh/site-functions/_git-forgit
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
+#source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 
 eval "$(atuin init --disable-ctrl-r zsh)"
 bindkey -M vicmd '^[[A' up-line-or-history
@@ -146,3 +161,4 @@ bindkey -M vicmd '^[[A' up-line-or-history
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval $(thefuck --alias)
