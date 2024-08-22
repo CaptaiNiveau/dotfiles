@@ -79,7 +79,17 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+#bindkey -s '^o' 'lfcd\n'
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+bindkey -s '^o' 'yy\n'
 
 # use fd for default fzf command
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
@@ -109,6 +119,9 @@ export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
 # add dotnet tools to PATH
 export PATH=$PATH:/home/captain/.dotnet/tools
 
+# add go binaries to PATH
+export PATH=$PATH:/home/captain/go/bin
+
 # make lvim default
 export EDITOR=lvim
 
@@ -118,12 +131,12 @@ export PAGER=/bin/less
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
 source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 #source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 
 ##-> DreymaR's SetXKB.sh: Activate layout
@@ -138,8 +151,5 @@ bindkey -M vicmd '^[[A' up-line-or-history
 # CTRL-R: Place the selected command from history in the command line
 # CTRL-P: Place the selected process ID in the command line
 #bindkey '\ec' fzy-cd-widget
-#bindkey '^T'  fzy-file-widget
-#bindkey '^R'  fzy-history-widget
-#bindkey '^P'  fzy-proc-widget
-
-#bindkey '^I' fzf_completion
+eval "$(pyenv virtualenv-init -)"
+eval $(thefuck --alias)
