@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 #activate python environment for bscypylgtvcommand
-source /home/captain/.local/git/bscpylgtv/venv/bin/activate
+source /home/captain/deckenburg/git/bscpylgtv/venv/bin/activate
 
 ip=$(cat ~/.config/lg/ip)
 
