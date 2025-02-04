@@ -14,8 +14,8 @@ fi
 # End of lines added by compinstall
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
 # enables comments in command prompt, like 'ls #command to list files'
 setopt interactivecomments
@@ -103,6 +103,35 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+# set xdg directories to declutter $HOME
+## .local/state | STATE_HOME
+export XDG_STATE_HOME=$HOME/.local/state
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+## .cache       | CACHE_HOME
+export XDG_CACHE_HOME=$HOME/.cache
+export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/nuget
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
+## .local/share | DATA_HOME
+export XDG_DATA_HOME=$HOME/.local/share
+export GOPATH="$XDG_DATA_HOME"/go
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
+export PSQL_HISTORY="$XDG_DATA_HOME"/psql_history
+export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+
+## .config      | CONFIG_HOME
+export XDG_CONFIG_HOME=$HOME/.config
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+
 # add ~/.local/bin to PATH
 export PATH=$PATH:/home/captain/.local/bin
 
@@ -121,6 +150,10 @@ export PATH=$PATH:/home/captain/.dotnet/tools
 
 # add go binaries to PATH
 export PATH=$PATH:/home/captain/go/bin
+
+# Added by Toolbox App
+export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
+
 
 # make lvim default
 export EDITOR=lvim
@@ -153,3 +186,4 @@ bindkey -M vicmd '^[[A' up-line-or-history
 #bindkey '\ec' fzy-cd-widget
 eval "$(pyenv virtualenv-init -)"
 eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
