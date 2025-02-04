@@ -13,3 +13,28 @@ run = '''
 on   = "<C-s>"
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "d" ]
+run  = "cd ~/dumpster"
+desc = "Cd to ~/dumpster"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "s" ]
+run  = "cd ~/.ssh"
+desc = "Cd to ~/.ssh"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "l" ]
+run  = "cd ~/.local"
+desc = "Cd to ~/.local"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "a" ]
+run  = "cd ~/.cache"
+desc = "Cd to ~/.cache"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "o" ]
+run  = "cd ~/deckenburg/osna"
+desc = "Cd to ~/deckenburg/osna"
