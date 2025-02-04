@@ -39,26 +39,26 @@ size = "75% 60%"
 [scratchpads.termleft]
 # Todo would be nice to pin this only when open
 animation = "fromLeft"
-command = "kitty --class kitty-dropterm"
-class = "kitty-dropterm"
+command = "kitty --class kitty-leftterm"
+class = "kitty-leftterm"
 # position = "40% 30%"
-lazy = true
+lazy = false
 size = "47% 90%"
 
 [scratchpads.termright]
 # Todo would be nice to pin this only when open
 animation = "fromRight"
-command = "kitty --class kitty-dropterm"
-class = "kitty-dropterm"
+command = "kitty --class kitty-rightterm"
+class = "kitty-rightterm"
 # position = "50% 20%"
 # margin = 100
-lazy = true
+lazy = false
 size = "47% 90%"
 
 [scratchpads.volume]
 animation = "fromRight"
 command = "pavucontrol"
-class = "pavucontrol"
+class = "org.pulseaudio.pavucontrol"
 lazy = true
 size = "47% 90%"
 
@@ -68,6 +68,13 @@ command = "firefox --no-remote --kiosk -P work --name firefox-work ~/Downloads/L
 class = "firefox-work"
 lazy = true
 size = "40% 90%"
+
+[scratchpads.copyq]
+animation = "fromBottom"
+command = "copyq show"
+class = "copyq"
+lazy = true
+size = "44% 40%"
 
 [scratchpads.knowledge]
 animation = "fromBottom"
