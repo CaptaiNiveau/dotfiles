@@ -8,12 +8,12 @@
 }
 
 .bar, tooltip {
-  background-color: rgba(40, 42, 54, 0.5);
+  background-color: rgba(30, 32, 54, 0.5);
   border-radius: 16px;
 }
 
 .bar {
-  background-color: rgba(40, 42, 54, 0.5);
+  background-color: rgba(30, 32, 54, 0.5);
   margin: 10 14 0 14;
   padding: 0;
   border-radius: 10px;
@@ -21,7 +21,7 @@
 }
 
 .bar > .horizontal {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(30, 32, 54, 0.5);
   border-radius: 10px;
 }
 
@@ -327,7 +327,7 @@ highlight {
   }
 }
 .bt-bg {
-  background-color: rgba(40, 42, 54, 0.5);
+  background-color: rgba(30, 32, 54, 0.5);
   border-radius: 16px;
   margin-right: 8px;
 }
