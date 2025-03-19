@@ -142,7 +142,7 @@ export PATH="$PATH:$ZVM_INSTALL/"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/autojump/autojump.zsh
+#source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
@@ -162,3 +162,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
