@@ -1,5 +1,9 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "b659791" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "7458b6c"
+hash = "5e3836123a40a2c44fb812c68a73b81"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "b081fa9"
+hash = "228f8191fd4f8dbfcf70f9f87073718e"
