@@ -25,8 +25,33 @@ desc = "Open shell here"
 
 [[manager.prepend_keymap]]
 on   = [ "g", "d" ]
-run  = "cd ~/dumpster"
+run  = "cd ~/deckenburg/dumpster"
 desc = "Cd to ~/dumpster"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "e", "h" ]
+run  = "cd ~/deckenburg"
+desc = "Cd to ~/deckenburg"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "e", "d" ]
+run  = "cd ~/deckenburg/documents"
+desc = "Cd to ~/deckenburg/documents"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "e", "g" ]
+run  = "cd ~/deckenburg/git"
+desc = "Cd to ~/deckenburg/git"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "e", "y" ]
+run  = "cd ~/deckenburg/synch"
+desc = "Cd to ~/deckenburg/synch"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "e", "o" ]
+run  = "cd ~/deckenburg/osna"
+desc = "Cd to ~/deckenburg/osna"
 
 [[manager.prepend_keymap]]
 on   = [ "g", "s" ]
@@ -42,8 +67,3 @@ desc = "Cd to ~/.local"
 on   = [ "g", "a" ]
 run  = "cd ~/.cache"
 desc = "Cd to ~/.cache"
-
-[[manager.prepend_keymap]]
-on   = [ "g", "o" ]
-run  = "cd ~/deckenburg/osna"
-desc = "Cd to ~/deckenburg/osna"
