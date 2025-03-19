@@ -14,3 +14,6 @@ set undolevels=10000
 " open files in the background using xdg-open 
 nnoremap gX :silent :execute
             \ "!xdg-open" expand('%:p:h') . "/" . expand("<cfile>") " &"<cr>
+
+" change 'magicness' to a resonable value
+:cnoremap s/ s/\v
