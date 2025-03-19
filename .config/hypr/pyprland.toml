@@ -39,8 +39,8 @@ size = "75% 60%"
 [scratchpads.termleft]
 # Todo would be nice to pin this only when open
 animation = "fromLeft"
-command = "kitty --class kitty-dropterm"
-class = "kitty-dropterm"
+command = "kitty --class kitty-leftterm"
+class = "kitty-leftterm"
 # position = "40% 30%"
 lazy = true
 size = "45% 90%"
@@ -48,8 +48,8 @@ size = "45% 90%"
 [scratchpads.termright]
 # Todo would be nice to pin this only when open
 animation = "fromRight"
-command = "kitty --class kitty-dropterm"
-class = "kitty-dropterm"
+command = "kitty --class kitty-rightterm"
+class = "kitty-rightterm"
 # position = "50% 20%"
 # margin = 100
 lazy = true
