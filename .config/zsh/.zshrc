@@ -106,7 +106,7 @@ bindkey '^e' edit-command-line
 # set xdg directories to declutter $HOME
 ## .local/state | STATE_HOME
 export XDG_STATE_HOME=$HOME/.local/state
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export HISTFILE="${XDG_STATE_HOME}"/zsh/history
 
 ## .cache       | CACHE_HOME
 export XDG_CACHE_HOME=$HOME/.cache
@@ -156,7 +156,7 @@ export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
 
 
 # make lvim default
-export EDITOR=lvim
+export EDITOR=nvim
 
 # force less as pager
 export PAGER=/bin/less
