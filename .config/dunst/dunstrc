@@ -322,6 +322,7 @@
     background = "#22113380"
     foreground = "#cdd6f4"
     timeout = 10
+    default_icon = dialog-information
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -449,6 +450,11 @@
 [KDE-Connect-Spotify]
     appname = "KDE Connect"
     summary = "Spotify"
+    skip_display = yes
+
+[KDE-Connect-Molly]
+    appname = "KDE Connect"
+    summary = "Molly"
     skip_display = yes
 
 #[stack-volumes]
