@@ -1,3 +1,6 @@
+#!/bin/zsh
+set -e
+
 matrix_size=3
 
 ##Utility functions
@@ -14,11 +17,15 @@ function cycle() {
     echo $((($1 + $matrix_size) % $matrix_size))
 }
 
-##Get active workspace, and translate to rows and cols
+## Get active workspace, and translate to rows and cols
+active_ws=$(hyprctl monitors -j | jq '.[] | select (.focused==true) | .activeWorkspace.id')
 
-active_ws=$(hyprctl monitors | grep "focused: yes" -B 10 | grep "active workspace" | awk -F': ' '{print $2}' | cut -d' ' -f1)
 row=$((($active_ws - 1) / $matrix_size))
 col=$((($active_ws - 1) % $matrix_size))
+
+## parantheses to create arrays
+othermonitors_ws="($(hyprctl monitors -j | jq '.[] | select (.focused==false) | .activeWorkspace.id'))"
+allused_ws="($(hyprctl monitors -j | jq '.[].activeWorkspace.id'))"
 
 echo "$row : $col"
 
@@ -29,7 +36,6 @@ echo "$row : $col"
 anim="workspaces,1,5,overshot,slide"
 defaultanim=$anim
 vertanim="${anim}vert"
-
 
 case $1 in
 "up") row=$(clamp $(($row - 1))) anim=$vertanim ;;
@@ -44,9 +50,13 @@ case $2 in
 esac
 
 ## translate col+row back to workspace number and apply
-
 echo "$row : $col"
 ws=$(($row * matrix_size + $col + 1))
+
+## don't apply if there's already a monitor on that workspace
+if (($allused_ws[(Ie)$ws])) then exit; fi
+
+echo $allused_ws[(Ie)$ws]
 echo $ws
 echo $anim
 hyprctl keyword animation $anim
