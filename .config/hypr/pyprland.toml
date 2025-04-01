@@ -43,7 +43,7 @@ command = "kitty --class kitty-leftterm"
 class = "kitty-leftterm"
 # position = "40% 30%"
 lazy = false
-size = "47% 90%"
+size = "45% 90%"
 
 [scratchpads.termright]
 # Todo would be nice to pin this only when open
@@ -53,7 +53,7 @@ class = "kitty-rightterm"
 # position = "50% 20%"
 # margin = 100
 lazy = false
-size = "47% 90%"
+size = "45% 90%"
 
 [scratchpads.volume]
 animation = "fromRight"
