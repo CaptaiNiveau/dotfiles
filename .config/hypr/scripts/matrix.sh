@@ -53,10 +53,20 @@ esac
 echo "$row : $col"
 ws=$(($row * matrix_size + $col + 1))
 
-## don't apply if there's already a monitor on that workspace
-if (($allused_ws[(Ie)$ws])) then exit; fi
+## don't apply if we're not dragging a window and there's already a monitor on that workspace
+existingmonitorindex=$allused_ws[(Ie)$ws]
+echo "================="
+echo "checking conditions for move"
+[[ ! -v 2 ]] && echo "arg 2 not empty"
+[[ $existingmonitorindex != 0 ]] && echo "existing monitor with same target workspace found: $existingmonitorindex"
+if [[ ! -v 2 && $existingmonitorindex != 0 ]] then {
+  echo "both conditions hit, exiting"
+  echo "================="
+  exit 
+} fi
+echo "conditions met, moving"
+echo "================="
 
-echo $allused_ws[(Ie)$ws]
 echo $ws
 echo $anim
 hyprctl keyword animation $anim
