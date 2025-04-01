@@ -2,7 +2,7 @@
 Description=gBar
 
 [Service]
-ExecStart=/home/lap/deckentempel/git/gBar/build/gBar bar 0
+ExecStart=/home/lap/deckenburg/git/gBar/build/gBar bar 0
 Restart=always
 
 [Install]
