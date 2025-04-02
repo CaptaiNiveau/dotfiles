@@ -1,5 +1,5 @@
-lua require('plugins')
-lua require('pluginconfig')
+//lua require('plugins')
+//lua require('pluginconfig')
 
 " save undo trees in files
 set undofile
