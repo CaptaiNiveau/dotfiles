@@ -116,6 +116,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/nuget
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 
 ## .local/share | DATA_HOME
 export XDG_DATA_HOME=$HOME/.local/share
@@ -123,17 +124,30 @@ export GOPATH="$XDG_DATA_HOME"/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
-export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
+export ANDROID_HOME="$XDG_DATA_HOME"/android/sdk
+export ANSIBLE_HOME="$XDG_DATA_HOME"/ansible
+export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure # Yeah those suckers called their data dir 'config'
 export PSQL_HISTORY="$XDG_DATA_HOME"/psql_history
-export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export VCPKG_ROOT="$XDG_DATA_HOME"/vcpkg
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
+export NB_DIR="$XDG_DATA_HOME/nb"
+export NIMBLE_DIR="$XDG_DATA_HOME/nimble"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+export W3M_DIR="$XDG_DATA_HOME"/w3m
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 
 ## .config      | CONFIG_HOME
 export XDG_CONFIG_HOME=$HOME/.config
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export NBRC_PATH="$XDG_CONFIG_HOME/nbrc"
+export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 
 # add ~/.local/bin to PATH
@@ -160,6 +174,8 @@ export PATH=$PATH:/home/captain/go/bin
 
 # add cargo binaries
 export PATH=$PATH:/home/captain/.local/share/cargo/bin
+# add pyenv/bin to path
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Added by Toolbox App
 export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
@@ -195,8 +211,6 @@ bindkey -M vicmd '^[[A' up-line-or-history
 # CTRL-T: Place the selected file path in the command line
 # CTRL-R: Place the selected command from history in the command line
 # CTRL-P: Place the selected process ID in the command line
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
