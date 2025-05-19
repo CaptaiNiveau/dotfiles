@@ -29,7 +29,7 @@ run  = "cd ~/deckenburg/dumpster"
 desc = "Cd to ~/dumpster"
 
 [[manager.prepend_keymap]]
-on   = [ "g", "e", "h" ]
+on   = [ "g", "e", "<space>" ]
 run  = "cd ~/deckenburg"
 desc = "Cd to ~/deckenburg"
 
