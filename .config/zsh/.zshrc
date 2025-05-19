@@ -127,6 +127,7 @@ export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
 export PSQL_HISTORY="$XDG_DATA_HOME"/psql_history
 export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export VCPKG_ROOT="$XDG_DATA_HOME"/vcpkg
 
 ## .config      | CONFIG_HOME
 export XDG_CONFIG_HOME=$HOME/.config
@@ -156,6 +157,9 @@ export PATH=$PATH:$HOME/.config/emacs/bin
 
 # add go binaries to PATH
 export PATH=$PATH:/home/captain/go/bin
+
+# add cargo binaries
+export PATH=$PATH:/home/captain/.local/share/cargo/bin
 
 # Added by Toolbox App
 export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
