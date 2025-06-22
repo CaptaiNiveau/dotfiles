@@ -33,8 +33,6 @@ HISTFILE=~/.cache/zsh/history
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
 bindkey -v
@@ -204,6 +202,11 @@ source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 #source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 
+# load terraform autocompletion
+fpath=(~/deckenburg/git/zsh-terraform $fpath)
+source $HOME/deckenburg/git/zsh-terraform/terraform.zsh
+source $HOME/deckenburg/git/zsh-terraform/tofu.zsh
+
 eval "$(atuin init --disable-ctrl-r zsh)"
 bindkey -M vicmd '^[[A' up-line-or-history
 
@@ -214,3 +217,6 @@ bindkey -M vicmd '^[[A' up-line-or-history
 eval "$(pyenv init -)"
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
+
+_comp_options+=(globdots)		# Include hidden files.
+compinit
