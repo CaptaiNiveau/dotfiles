@@ -41,10 +41,34 @@ export KEYTIMEOUT=1
 # Use vim keys in tab complete menu:
 bindkey -v '^?' backward-delete-char
 
-# Fix home, end and del keys
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
+# Fix home, end and del keys as well as 
+bindkey -M viins "^[[H" beginning-of-line
+bindkey -M viins "^[[F" end-of-line
+bindkey -M vicmd "^[[H" beginning-of-line
+bindkey -M vicmd "^[[F" end-of-line
+
+bindkey -M viins "^[[1;5H" beginning-of-line
+bindkey -M viins "^[[1;5F" end-of-line
+bindkey -M vicmd "^[[1;5H" beginning-of-line
+bindkey -M vicmd "^[[1;5F" end-of-line
+
+# Fix Delete
+bindkey -M viins "^[[3~" delete-char
+bindkey -M vicmd "^[[3~" delete-char
+
+# Fix ctrl + left/right
+bindkey -M viins "^[[1;5C" forward-word
+bindkey -M viins "^[[1;5D" backward-word
+bindkey -M vicmd "^[[1;5C" forward-word
+bindkey -M vicmd "^[[1;5D" backward-word
+
+# Ctrl+Backspace: kill the word backward
+bindkey -M viins '^H' backward-kill-word
+bindkey -M vicmd '^H' backward-kill-word
+
+# Ctrl+Delete: kill the word forward
+bindkey -M viins '^[[3;5~' kill-word
+bindkey -M vicmd '^[[3;5~' kill-word
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
