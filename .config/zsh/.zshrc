@@ -41,7 +41,7 @@ export KEYTIMEOUT=1
 # Use vim keys in tab complete menu:
 bindkey -v '^?' backward-delete-char
 
-# Fix home, end and del keys as well as 
+# Fix home, end and del keys
 bindkey -M viins "^[[H" beginning-of-line
 bindkey -M viins "^[[F" end-of-line
 bindkey -M vicmd "^[[H" beginning-of-line
@@ -69,6 +69,23 @@ bindkey -M vicmd '^H' backward-kill-word
 # Ctrl+Delete: kill the word forward
 bindkey -M viins '^[[3;5~' kill-word
 bindkey -M vicmd '^[[3;5~' kill-word
+
+# zsh parameter completion for the dotnet CLI
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
+
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+compdef _dotnet_zsh_complete dotnet
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -116,6 +133,13 @@ bindkey -s '^o' 'yy\n'
 # TheFuck
 eval $(thefuck --alias)
 
+# pnpm
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # use fd for default fzf command
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -123,10 +147,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # set xdg directories to declutter $HOME
 ## .local/state | STATE_HOME
@@ -171,6 +191,9 @@ export NBRC_PATH="$XDG_CONFIG_HOME/nbrc"
 export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
+# Load aliases and shortcuts if existent.
+[ -f "$XDG_CONFIG_HOME/shortcutrc" ] && source "$XDG_CONFIG_HOME/shortcutrc"
+[ -f "$XDG_CONFIG_HOME/aliasrc" ] && source "$XDG_CONFIG_HOME/aliasrc"
 
 # add ~/.local/bin to PATH
 export PATH=$PATH:$HOME/.local/bin
@@ -183,7 +206,7 @@ export PATH=$PATH:$HOME/.local/custom/ueberzug
 export PATH=$PATH:$HOME/synch/scripts
 
 # add jetbrains ~/.local/share/JetBrains/Toolbox/scripts to PATH
-export PATH=$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:$XDG_DATA_HOME/JetBrains/Toolbox/scripts
 
 # add dotnet tools to PATH
 export PATH=$PATH:$HOME/.dotnet/tools
@@ -192,15 +215,15 @@ export PATH=$PATH:$HOME/.dotnet/tools
 export PATH=$PATH:$HOME/.config/emacs/bin
 
 # add go binaries to PATH
-export PATH=$PATH:/home/captain/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # add cargo binaries
-export PATH=$PATH:/home/captain/.local/share/cargo/bin
+export PATH=$PATH:XDG_DATA_HOME/cargo/bin
 # add pyenv/bin to path
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Added by Toolbox App
-export PATH=$PATH:/home/captain/.local/share/JetBrains/Toolbox/scripts
+export PATH=$PATH:$XDG_DATA_HOME/JetBrains/Toolbox/scripts
 
 
 # make lvim default
