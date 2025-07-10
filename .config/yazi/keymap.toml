@@ -29,7 +29,7 @@ run  = "cd ~/dumpster"
 desc = "Cd to ~/dumpster"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "e", "<space>" ]
+on   = [ "g", "e", "e" ]
 run  = "cd ~/deckenburg"
 desc = "Cd to ~/deckenburg"
 
@@ -42,6 +42,26 @@ desc = "Cd to ~/deckenburg/documents"
 on   = [ "g", "e", "g" ]
 run  = "cd ~/deckenburg/git"
 desc = "Cd to ~/deckenburg/git"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "e", "n", "n" ]
+run  = "cd ~/deckenburg/notes"
+desc = "Cd to ~/deckenburg/notes"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "e", "n", "f" ]
+run  = "cd ~/deckenburg/notes/todo/fixesnguides"
+desc = "Cd to ~/deckenburg/notes/todo/fixesnguides"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "e", "n", "t", "t" ]
+run  = "cd ~/deckenburg/notes/todo-private"
+desc = "Cd to ~/deckenburg/notes/todo-private"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "e", "n", "t", "w" ]
+run  = "cd ~/deckenburg/notes/todo-work"
+desc = "Cd to ~/deckenburg/notes/todo-work"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "e", "y" ]
