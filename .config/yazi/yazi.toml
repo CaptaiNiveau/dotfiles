@@ -73,7 +73,7 @@ macro_workers    = 25
 bizarre_retry    = 5
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 0, 0 ]
-suppress_preload = false
+suppress_preload = true
 
 [[plugin.prepend_fetchers]]
 id   = "git"
@@ -104,7 +104,10 @@ preloaders = [
 	{ mime = "application/vnd.ms-opentype", run = "font" },
 ]
 previewers = [
-	{ name = "*/", run = "folder", sync = true },
+	#{ name = "*/", run = "folder", sync = true },
+    { name = "*/", run  = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+    # Markdown
+    { name = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,wine-extension-ini}", run = "code" },
@@ -126,6 +129,10 @@ previewers = [
 	# Fallback
 	{ name = "*", run = "file" },
 ]
+
+[[plugin.prepend_preloaders]]
+name = "/mnt/**"
+run  = "noop"
 
 [input]
 cursor_blink = true
