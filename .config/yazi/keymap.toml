@@ -1,3 +1,4 @@
+## Plugins ##
 [[input.prepend_keymap]]
 on   = "<Esc>"
 run  = "close"
@@ -10,6 +11,21 @@ run = '''
 '''
 
 [[mgr.prepend_keymap]]
+on = ["h", "h"]
+run = "plugin time-travel -- prev"
+desc = "Go to previous snapshot"
+
+[[mgr.prepend_keymap]]
+on = ["h", "n"]
+run = "plugin time-travel -- next"
+desc = "Go to next snapshot"
+
+[[mgr.prepend_keymap]]
+on = ["h", "e"]
+run = "plugin time-travel -- exit"
+desc = "Exit browsing snapshots"
+
+[[mgr.prepend_keymap]]
 on  = "M"
 run = "plugin mount"
 
@@ -18,10 +34,26 @@ on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
 
+## \Plugins ##
+
+## Preview ##
+
+[[mgr.prepend_keymap]]
+on  = "<S-Up>"
+run = "seek -5"
+
+[[mgr.prepend_keymap]]
+on  = "<S-Down>"
+run = "seek 5"
+
 [[mgr.prepend_keymap]]
 on   = "<C-s>"
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
+
+## \Preview ##
+
+## Quick nav ##
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "d" ]
@@ -112,3 +144,5 @@ desc = "cd to ~/.config/hypr"
 on   = [ "g", "a" ]
 run  = "cd ~/.cache"
 desc = "Cd to ~/.cache"
+
+## \Quick nav ##
