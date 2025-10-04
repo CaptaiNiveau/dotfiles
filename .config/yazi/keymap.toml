@@ -3,67 +3,92 @@ on   = "<Esc>"
 run  = "close"
 desc = "Cancel input"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on  = "<C-n>"
 run = '''
   shell 'ripdrag "$@" -x 2>/dev/null &' --confirm
 '''
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on  = "M"
 run = "plugin mount"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "<C-s>"
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "d" ]
-run  = "cd ~/deckenburg/dumpster"
+run  = "cd ~/dumpster"
 desc = "Cd to ~/dumpster"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "e", "<space>" ]
 run  = "cd ~/deckenburg"
 desc = "Cd to ~/deckenburg"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "e", "d" ]
 run  = "cd ~/deckenburg/documents"
 desc = "Cd to ~/deckenburg/documents"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "e", "g" ]
 run  = "cd ~/deckenburg/git"
 desc = "Cd to ~/deckenburg/git"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "e", "y" ]
 run  = "cd ~/deckenburg/synch"
 desc = "Cd to ~/deckenburg/synch"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "e", "o" ]
 run  = "cd ~/deckenburg/osna"
 desc = "Cd to ~/deckenburg/osna"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "s" ]
 run  = "cd ~/.ssh"
 desc = "Cd to ~/.ssh"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "l" ]
 run  = "cd ~/.local"
 desc = "Cd to ~/.local"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
+on   = [ "g", "c", "c" ]
+run  = "cd ~/.config"
+desc = "Cd to ~/.config"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "c", "z" ]
+run  = "cd ~/.config/zsh"
+desc = "cd to ~/.config/zsh"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "c", "g" ]
+run  = "cd ~/.config/gBar"
+desc = "cd to ~/.config/gBar"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "c", "y" ]
+run  = "cd ~/.config/yazi"
+desc = "cd to ~/.config/yazi"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "c", "h" ]
+run  = "cd ~/.config/hypr"
+desc = "cd to ~/.config/hypr"
+
+[[mgr.prepend_keymap]]
 on   = [ "g", "a" ]
 run  = "cd ~/.cache"
 desc = "Cd to ~/.cache"
