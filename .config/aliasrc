@@ -98,9 +98,13 @@ alias gu=gitupdate
 
 # Dotfiles
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias configcaptain='git --git-dir=$HOME/mnt/captain/.cfg/ --work-tree=$HOME/mnt/captain'
 alias clt='config log --oneline --decorate --graph --all'
 alias clta='config log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
+alias cclt='configcaptain log --oneline --decorate --graph --all'
+alias cclta='configcaptain log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 alias lazyconfig='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias lazyconfigcaptain='lazygit --git-dir=$HOME/mnt/captain/.cfg/ --work-tree=$HOME/mnt/captain'
 
 alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
