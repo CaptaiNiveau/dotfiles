@@ -1,0 +1,31 @@
+# Plugins
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+#source /usr/share/autojump/autojump.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
+source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
+source /usr/share/zsh/site-functions/_git-forgit
+source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+#source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+
+eval "$(atuin init --disable-ctrl-r zsh)"
+
+# Use different history when in normal mode
+bindkey -M vicmd '^[[A' up-line-or-history
+bindkey -M vicmd '^[OA' up-line-or-history
+
+# ALT-C: cd into the selected directory
+# CTRL-T: Place the selected file path in the command line
+# CTRL-R: Place the selected command from history in the command line
+# CTRL-P: Place the selected process ID in the command line
+eval "$(pyenv init -)"
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
+
+# TheFuck
+eval $(thefuck --alias)

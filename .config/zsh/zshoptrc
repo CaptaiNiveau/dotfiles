@@ -1,0 +1,2 @@
+# enables comments in command prompt, like 'ls #command to list files'
+setopt interactivecomments
