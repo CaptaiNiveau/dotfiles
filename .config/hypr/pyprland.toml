@@ -78,8 +78,8 @@ size = "44% 40%"
 
 [scratchpads.knowledge]
 animation = "fromBottom"
-command = "obsidian"
-class = "obsidian"
+command = "gtk-launch emacsclient"
+class = "emacs"
 lazy = true
 size = "94% 90%"
 
