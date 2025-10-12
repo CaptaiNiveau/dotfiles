@@ -2,16 +2,14 @@
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 #source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
-source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
 source /usr/share/zsh/site-functions/_git-forgit
-source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
+source ~/.config/zsh/plugins/fzf-zsh-plugin/fzf-zsh-plugin.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-#source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 eval "$(atuin init --disable-ctrl-r zsh)"
 
