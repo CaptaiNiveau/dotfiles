@@ -76,7 +76,7 @@ export PATH=$PATH:XDG_DATA_HOME/cargo/bin
 export PATH=$PATH:$XDG_DATA_HOME/JetBrains/Toolbox/scripts
 
 # force less as pager
-export PAGER=less
+export PAGER="less -RN"
 
 # zig zvm stuff
 export ZVM_INSTALL="$HOME/.zvm/self"
@@ -93,3 +93,6 @@ esac
 # use fd for default fzf command
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# zsh vi mode
+export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
