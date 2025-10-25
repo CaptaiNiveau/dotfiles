@@ -11,4 +11,4 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
-bindkey -s '^o' 'yy\n'
+bindkey -s '^o' '^uyy\n'
