@@ -36,6 +36,13 @@ desc = "Smart filter"
 
 ## \Plugins ##
 
+## Tools ##
+[[mgr.prepend_keymap]]
+on   = "S"
+run  = "search --via=rga"
+desc = "Search using rga"
+## \Tools ##
+
 ## Preview ##
 
 [[mgr.prepend_keymap]]
