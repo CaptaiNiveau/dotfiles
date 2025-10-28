@@ -28,31 +28,31 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require("mason-lspconfig").setup_handlers {
-    ["rust_analyzer"] = function() end,
-}
-require("lspconfig").clangd.setup({
-  settings = {
-    clangd = {
-      InlayHints = {
-        Designators = true,
-        Enabled = true,
-        ParameterNames = true,
-        DeducedTypes = true,
-      },
-      fallbackFlags = { "-std=c++14" },
-    },
-  }
-})
-
-require('lspconfig').bashls.setup({})
-require('lspconfig').neocmake.setup({})
-require('lspconfig').sqls.setup({})
-
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   handlers = {
+    -- Skip rust_analyzer (no setup needed)
+    ['rust_analyzer'] = function() end,
+
+    -- Custom clangd configuration
+    ['clangd'] = function()
+      require('lspconfig').clangd.setup({
+        settings = {
+          clangd = {
+            InlayHints = {
+              Designators = true,
+              Enabled = true,
+              ParameterNames = true,
+              DeducedTypes = true,
+            },
+            fallbackFlags = { '-std=c++14' },
+          },
+        }
+      })
+    end,
+
+    -- Default setup for remaining servers
     function(server_name)
       require('lspconfig')[server_name].setup({})
     end,
