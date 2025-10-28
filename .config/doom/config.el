@@ -4,8 +4,10 @@
 ;; sync' after modifying this file!
 
 ;; Projectile known directories
+(projectile-discover-projects-in-directory "~/deckenburg/" 1)
 (projectile-discover-projects-in-directory "~/deckenburg/git/" 1)
 (projectile-discover-projects-in-directory "~/deckenburg/synch/" 1)
+(projectile-discover-projects-in-directory "~/deckenburg/synch/GateOne/" 1)
 (projectile-discover-projects-in-directory "~/deckenburg/synch/git-merge-attempts/fullstack/" 1)
 
 (setq projectile-cleanup-known-projects t)
