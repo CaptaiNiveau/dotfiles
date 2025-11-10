@@ -5,6 +5,7 @@
 
 ;; Projectile known directories
 (projectile-discover-projects-in-directory "~/deckenburg/" 1)
+(projectile-discover-projects-in-directory "~/deckenburg/osna" 4)
 (projectile-discover-projects-in-directory "~/deckenburg/git/" 1)
 (projectile-discover-projects-in-directory "~/deckenburg/synch/" 1)
 (projectile-discover-projects-in-directory "~/deckenburg/synch/GateOne/" 1)
@@ -70,6 +71,19 @@
 
 ;; (setq lsp-java-jdt-download-url
 ;;       "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.52.0/jdt-language-server-1.52.0-202510301627.tar.gz")
+
+(setq xterm-extra-capabilities '(getSelection setSelection modifyOtherKeys))
+
+;; ((and (eq system-type 'gnu/linux) (executable-find "wl-copy"))
+;;  (setq interprogram-cut-function
+;;        (lambda (text &optional _)
+;;          (let ((process-connection-type nil))
+;;            (let ((proc (start-process "wl-copy" "*Messages*" "wl-copy")))
+;;              (process-send-string proc text)
+;;              (process-send-eof proc)))))
+;;  (setq interprogram-paste-function
+;;        (lambda ()
+;;          (shell-command-to-string "wl-paste -n"))))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
