@@ -6,4 +6,4 @@ ExecStart=/home/lap/deckenburg/git/gBar/build/gBar bar 0
 Restart=always
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target

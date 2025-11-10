@@ -1,0 +1,12 @@
+[Unit]
+Description=Hyprpaper
+#After=graphical-session.target
+#BindsTo=wayland-wm@hyprland.desktop.service
+
+
+[Service]
+ExecStart=hyprpaper
+
+[Install]
+#WantedBy=graphical-session.target 
+WantedBy=wayland-session@hyprland.desktop.target

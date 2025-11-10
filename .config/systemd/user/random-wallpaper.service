@@ -1,0 +1,6 @@
+[Unit]
+Description=Pick random wallpaper
+After=hyprpaper.service
+
+[Service]
+ExecStart=/home/lap/.local/custom/random-wallpaper

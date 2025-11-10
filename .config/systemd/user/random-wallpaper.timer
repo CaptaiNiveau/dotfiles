@@ -1,0 +1,11 @@
+[Unit]
+Description=Pick a random Wallpaper every hour!
+Requires=random-wallpaper.service
+After=hyprpaper.service
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=graphical-session.target
