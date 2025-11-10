@@ -63,6 +63,14 @@
 (use-package magit-delta
   :hook (magit-mode . magit-delta-mode))
 
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+
+(setq lsp-java-java-path "/usr/lib/jvm/java-25-openjdk/bin/java")
+
+;; (setq lsp-java-jdt-download-url
+;;       "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.52.0/jdt-language-server-1.52.0-202510301627.tar.gz")
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
