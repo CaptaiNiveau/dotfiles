@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Set RL launch options to `"/path/to/this/script.sh" & %command%`
+# Put any other launch options before `%command%` like normal
+# Set Wineprefix for Rocket League
+RLdir="$HOME/.steam/steam/steamapps/compatdata/252950"
+
+# Detect what Proton version was used last
+PROTON=$(sed -n 4p "$RLdir"/config_info | xargs -d '\n' dirname)
+
+# Start BakkesMod when RL Starts
+while ! killall -0 RocketLeague.ex 2> /dev/null; do
+    sleep 1
+done
+
+dunstctl set-paused true
+# Open BakkesMod with above wineprefix and proton
+## IMPORTANT! MAKE SURE YOU ENABLE WINE E/F SYNC HERE, DEPENDING ON YOUR NEEDS!
+WINEESYNC=1 WINEPREFIX="$RLdir/pfx" "$PROTON"/bin/wine64 "$RLdir/pfx/drive_c/users/steamuser/My Documents/My Games/Rocket League/TAGame/BakkesMod.exe" &
+
+# Kill BakkesMod process when RL is closed
+while killall -0 RocketLeague.ex 2> /dev/null; do
+    sleep 1
+done
+dunstctl set-paused false
+killall BakkesMod.exe
