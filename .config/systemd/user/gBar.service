@@ -1,9 +1,19 @@
 [Unit]
 Description=gBar
-
-[Service]
-ExecStart=/home/lap/deckenburg/git/gBar/build/gBar bar 0
-Restart=always
+Requires=hyprpaper.service
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+Requires=graphical-session.target
 
 [Install]
 WantedBy=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/captain/deckenburg/git/gBar/build/gBar bar 0
+Slice=session.slice
+Restart=on-failure
+
+[Install]
+WantedBy=hyprpaper.service

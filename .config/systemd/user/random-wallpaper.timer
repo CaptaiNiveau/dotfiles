@@ -1,7 +1,7 @@
 [Unit]
 Description=Pick a random Wallpaper every hour!
 Requires=random-wallpaper.service
-After=hyprpaper.service
+After=hyprpaper-ready.service
 
 [Timer]
 OnCalendar=hourly

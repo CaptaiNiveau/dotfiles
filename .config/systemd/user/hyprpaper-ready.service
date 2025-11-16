@@ -1,0 +1,14 @@
+[Unit]
+Description=hyprpaper (block until IPC socket is ready)
+PartOf=graphical-session.target
+Requires=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'while ! hyprctl hyprpaper ping >/dev/null 2>&1; do sleep 0.2; done'
+
+[Install]
+WantedBy=graphical-session.target

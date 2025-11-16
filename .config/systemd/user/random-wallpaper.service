@@ -1,6 +1,10 @@
 [Unit]
 Description=Pick random wallpaper
-After=hyprpaper.service
+After=hyprpaper-ready.service
+Requires=hyprpaper-ready.service
 
 [Service]
-ExecStart=/home/lap/.local/custom/random-wallpaper
+ExecStart=/home/captain/.local/custom/random-wallpaper.zsh
+
+[Install]
+WantedBy=hyprpaper-ready.service
