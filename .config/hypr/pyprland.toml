@@ -78,7 +78,8 @@ size = "44% 40%"
 
 [scratchpads.knowledge]
 animation = "fromBottom"
-command = "gtk-launch emacsclient"
+#command = "uwsm app -- emacsclient.desktop"
+command = "uwsm app -- emacs.desktop"
 class = "emacs"
 lazy = true
 size = "94% 90%"
