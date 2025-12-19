@@ -77,12 +77,18 @@ lazy = true
 size = "44% 40%"
 
 [scratchpads.knowledge]
-animation = "fromBottom"
+animation = "fromTop"
 #command = "uwsm app -- emacsclient.desktop"
 command = "uwsm app -- emacs.desktop"
 class = "emacs"
-lazy = true
 size = "94% 90%"
+
+#[scratchpads.knowledgeright]
+#animation = "fromTop"
+##command = "uwsm app -- emacsclient.desktop"
+#command = "uwsm app -- emacs.desktop"
+#class = "emacs"
+#size = "45% 90%"
 
 [monitors]
 unknown = "wlrlui"
