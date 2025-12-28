@@ -20,8 +20,8 @@ eval $(thefuck --alias)
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 #source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
-source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
-source /usr/share/zsh/site-functions/_git-forgit
+#source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
+#source /usr/share/zsh/site-functions/_git-forgit
 source ~/.config/zsh/plugins/fzf-zsh-plugin/fzf-zsh-plugin.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 
