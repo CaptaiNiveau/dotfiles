@@ -9,9 +9,11 @@ bindkey -M vicmd '^[OA' up-line-or-history
 # CTRL-T: Place the selected file path in the command line
 # CTRL-R: Place the selected command from history in the command line
 # CTRL-P: Place the selected process ID in the command line
-eval "$(pyenv init -)"
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
 # TheFuck
 eval $(thefuck --alias)
