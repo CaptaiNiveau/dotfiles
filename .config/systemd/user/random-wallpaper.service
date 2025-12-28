@@ -4,7 +4,7 @@ After=hyprpaper-ready.service
 Requires=hyprpaper-ready.service
 
 [Service]
-ExecStart=/home/captain/.local/custom/random-wallpaper.zsh
+ExecStart=%h/.local/custom/random-wallpaper.zsh
 
 [Install]
 WantedBy=hyprpaper-ready.service
