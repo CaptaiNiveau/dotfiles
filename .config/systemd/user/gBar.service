@@ -11,7 +11,7 @@ WantedBy=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/home/captain/deckenburg/git/gBar/build/gBar bar 0
+ExecStart=%h/deckenburg/git/gBar/build/gBar bar 0
 Slice=session.slice
 Restart=on-failure
 
