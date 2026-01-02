@@ -48,7 +48,7 @@ play = [
 [open]
 rules = [
 	# Folder
-	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
@@ -64,7 +64,7 @@ rules = [
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# Fallback
-	{ name = "*", use = [ "open", "reveal" ] },
+	{ url = "*", use = [ "open", "reveal" ] },
 ]
 
 [tasks]
@@ -77,20 +77,20 @@ suppress_preload = true
 
 [[plugin.prepend_fetchers]]
 id   = "git"
-name = "*"
+url = "*"
 run  = "git"
 
 [[plugin.prepend_fetchers]]
 id   = "git"
-name = "*/"
+url = "*/"
 run  = "git"
 
 [plugin]
-
 fetchers = [
-	# Mimetype
-	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+    { id = "mime", url = "*", run = "mime.local", prio = "high" },
+    { id = "mime", url = "*/", run = "mime.dir", prio = "high" },
 ]
+
 preloaders = [
 	# Image
 	{ mime = "image/{avif,heic,jxl,svg+xml}", run = "magick" },
@@ -104,10 +104,10 @@ preloaders = [
 	{ mime = "application/vnd.ms-opentype", run = "font" },
 ]
 previewers = [
-	#{ name = "*/", run = "folder", sync = true },
-    { name = "*/", run  = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+	#{ url = "*/", run = "folder", sync = true },
+    { url = "*/", run  = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
     # Markdown
-    { name = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
+    { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,wine-extension-ini}", run = "code" },
@@ -127,11 +127,11 @@ previewers = [
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ url = "*", run = "file" },
 ]
 
 [[plugin.prepend_preloaders]]
-name = "/mnt/**"
+url = "/mnt/**"
 run  = "noop"
 
 [input]
