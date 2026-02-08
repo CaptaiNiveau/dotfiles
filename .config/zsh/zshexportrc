@@ -1,3 +1,10 @@
+# export environment variables set by .config/environment.d and other places
+set -a
+. /dev/fd/0 <<EOF
+$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+EOF
+set +a
+
 # make nvim default editor
 export EDITOR=nvim
 
