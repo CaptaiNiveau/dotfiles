@@ -225,7 +225,7 @@
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
-    history_length = 50
+    history_length = 1000
 
     ### Misc/Advanced ###
 
@@ -446,7 +446,7 @@
 #    appname = Pidgin
 #    summary = *says*
 #    urgency = critical
-#
+
 [KDE-Connect-Spotify]
     appname = "KDE Connect"
     summary = "Spotify"
@@ -456,6 +456,18 @@
     appname = "KDE Connect"
     summary = "Molly"
     skip_display = yes
+
+[ZSH-auto-notify-success]
+   appname = zsh
+   summary = "*Completed"
+   urgency = normal
+   script = notify-success.sh
+
+[ZSH-auto-notify-failure]
+   appname = zsh
+   summary = "*Completed"
+   urgency = critical
+   script = notify-failure.sh
 
 #[stack-volumes]
 #    appname = "some_volume_notifiers"
