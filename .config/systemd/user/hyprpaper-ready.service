@@ -8,7 +8,7 @@ ConditionEnvironment=WAYLAND_DISPLAY
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/sh -c 'while ! hyprctl hyprpaper ping >/dev/null 2>&1; do sleep 0.2; done'
+ExecStart=/bin/sh -c 'while ! hyprctl hyprpaper wallpaper ",~/.wallpapers/isolated_4k.png" >/dev/null 2>&1; do sleep 0.2; done'
 
 [Install]
 WantedBy=graphical-session.target
