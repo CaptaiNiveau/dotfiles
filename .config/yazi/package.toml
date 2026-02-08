@@ -28,6 +28,11 @@ use = "iynaix/time-travel"
 rev = "7e0179e"
 hash = "69967963fba96295a07b68354fc91ea9"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "56971d0"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "2d73b79"
