@@ -1,0 +1,11 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "redhat.telemetry.enabled": true,
+    "keyboard.dispatch": "keyCode",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true
+}
