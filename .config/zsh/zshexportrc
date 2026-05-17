@@ -83,7 +83,7 @@ export PATH=$PATH:$XDG_DATA_HOME/cargo/bin
 export PATH=$PATH:$XDG_DATA_HOME/JetBrains/Toolbox/scripts
 
 # force less as pager
-export PAGER="less -RN"
+export PAGER="less -R"
 
 # zig zvm stuff
 export ZVM_INSTALL="$HOME/.zvm/self"

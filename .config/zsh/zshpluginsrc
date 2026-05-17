@@ -19,7 +19,7 @@ fi
 eval $(thefuck --alias)
 
 # Auto notify
-AUTO_NOTIFY_IGNORE+=("yy" "yazi" "btop" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "dragon-drop")
+AUTO_NOTIFY_IGNORE+=("yy" "yazi" "nvim" "btop" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "batman" "dragon-drop")
 export AUTO_NOTIFY_THRESHOLD=5
 source /usr/share/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh
 
@@ -41,6 +41,7 @@ source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Load zsh-syntax-highlighting; should be last.
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.config/zsh/plugins/jq-zsh-plugin/jq.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 #source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
