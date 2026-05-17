@@ -19,12 +19,40 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     -- list of plugins here
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
+    --{'xiyaowong/transparent.nvim'},
+    { "catppuccin/nvim", name = "catppuccin", opts = { transparent_background = true, } },
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp'},
+    {
+      "necrom4/calcium.nvim",
+      cmd = { "Calcium" },
+      opts = {
+        -- default configuration
+        notifications = true,                 -- notify result
+        default_mode = "append",              -- or `replace` the expression
+        scratchpad = {
+            border = "rounded",               -- floating window border style (:help 'winborder')
+            virtual_text = {
+                format = "= %s",              -- virtual text format
+                highlight_group = "Comment",  -- virtual text highlight group
+            },
+            result_variable = "ans"           -- name of the variable for the last computation result
+        },
+      },
+      keys = {
+        -- example keymap
+        {
+          "<leader>c",
+          ":Calcium<CR>",
+          desc = "Calculate",
+          mode = { "n", "v" },
+          silent = true,
+        },
+      }
+    },
     { 
         'mistweaverco/discord.nvim',
         event = "VeryLazy"
