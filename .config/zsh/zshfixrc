@@ -7,6 +7,18 @@ bindkey -M viins "^[[F" end-of-line
 bindkey -M vicmd "^[[H" beginning-of-line
 bindkey -M vicmd "^[[F" end-of-line
 
+bindkey -M viins "\eOH" beginning-of-line
+bindkey -M viins "\eOF" end-of-line
+bindkey -M vicmd "\eOH" beginning-of-line
+bindkey -M vicmd "\eOF" end-of-line
+
+bindkey '^[[F' end-of-line      # End key
+bindkey '^[[H' beginning-of-line # Home key
+
+# Alternative sequences some terminals use:
+bindkey '^[OF' end-of-line
+bindkey '^[OH' beginning-of-line
+
 bindkey -M viins "^[[1;5H" beginning-of-line
 bindkey -M viins "^[[1;5F" end-of-line
 bindkey -M vicmd "^[[1;5H" beginning-of-line
