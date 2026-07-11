@@ -5,7 +5,7 @@ netshoot $container="":
     #!/bin/bash
     set -euo pipefail
     container=${container:-$(just dockercmd="{{ dockercmd }}" choose-container)}
-    state=$({{ dockercmd }} inspect -f {{"{{.State.Status}}"}} "$container")
+    state=$({{ dockercmd }} inspect -f '{{"{{.State.Status}}"}}' "$container")
 
     if [ "$state" = "running" ]; then
         {{ dockercmd }} run --rm -it --network container:"$container" nicolaka/netshoot
@@ -26,12 +26,13 @@ enter $cmd="sh" $container="":
     container=${container:-$(just dockercmd="{{ dockercmd }}" choose-container)}
     just dockercmd="{{ dockercmd }}" exec "$cmd" "$container"
 
+
 exec $cmd="sh" $container="" $flags="-it":
     #!/bin/bash
     set -euo pipefail
     set -x
     container=${container:-$(just dockercmd="{{ dockercmd }}" choose-container)}
-    state=$({{ dockercmd }} inspect -f {{"{{.State.Status}}"}} "$container")
+    state=$({{ dockercmd }} inspect -f '{{"{{.State.Status}}"}}' "$container")
 
     if [ "$state" = "running" ]; then
         {{ dockercmd }} exec {{ flags }} "$container" {{cmd}}
@@ -58,10 +59,9 @@ exec $cmd="sh" $container="" $flags="-it":
 choose-container format="{{.Names}}":
     #!/bin/bash
     set -euo pipefail
-    containers=$({{ dockercmd }} ps -a --format {{ format }})
+    containers=$({{ dockercmd }} ps -a --format "{{ format }}")
     container=$(fzf <<< "$containers")
-    echo $container
-
+    echo "$container"
 
 launch-synch-panel-different:
     #!/usr/bin/env bash
