@@ -1,9 +1,67 @@
 socket := "unix:/tmp/kitty-ssh-grid"
+dockercmd := "docker"
 
 netshoot $container="":
     #!/bin/bash
-    container=${container:-$(docker ps --format {{"{{.Names}}"}} | fzf)}
-    docker run --rm -it --network container:$container nicolaka/netshoot
+    set -euo pipefail
+    container=${container:-$(just dockercmd="{{ dockercmd }}" choose-container)}
+    state=$({{ dockercmd }} inspect -f {{"{{.State.Status}}"}} "$container")
+
+    if [ "$state" = "running" ]; then
+        {{ dockercmd }} run --rm -it --network container:"$container" nicolaka/netshoot
+        exit 0
+    fi
+
+    just dockercmd="{{ dockercmd }}" exec "tail -f /dev/null" "$container" "-i" &
+    trap 'jobs -p | xargs -r kill' EXIT # this needs improvement, it doesn't properly kill the container yet
+    sleep 5 # maybe some nicer way of waiting till it's up?
+    {{ dockercmd }} run --rm -it --network container:exec-"$container" nicolaka/netshoot
+    wait
+
+# Enter a container and run a command.
+enter $cmd="sh" $container="":
+    #!/bin/bash
+    set -euo pipefail
+    set -x
+    container=${container:-$(just dockercmd="{{ dockercmd }}" choose-container)}
+    just dockercmd="{{ dockercmd }}" exec "$cmd" "$container"
+
+exec $cmd="sh" $container="" $flags="-it":
+    #!/bin/bash
+    set -euo pipefail
+    set -x
+    container=${container:-$(just dockercmd="{{ dockercmd }}" choose-container)}
+    state=$({{ dockercmd }} inspect -f {{"{{.State.Status}}"}} "$container")
+
+    if [ "$state" = "running" ]; then
+        {{ dockercmd }} exec {{ flags }} "$container" {{cmd}}
+        exit 0
+    fi
+
+    tmpimg="enter-${container}-$(date +%s)"
+    {{ dockercmd }} commit "$container" "$tmpimg"
+    trap '{{ dockercmd }} rmi "$tmpimg" >/dev/null 2>&1 || true' EXIT
+
+    entrypoint="${cmd%% *}"
+    args="${cmd#* }"
+    [ "$entrypoint" = "$cmd" ] && args=""
+
+    # --volumes-from keeps the same volume view as the original container
+    {{ dockercmd }} run --rm {{ flags }} \
+        --volumes-from "$container" \
+        --name "exec-$container" \
+        --entrypoint "$entrypoint" \
+        "$tmpimg" \
+        $args
+
+
+choose-container format="{{.Names}}":
+    #!/bin/bash
+    set -euo pipefail
+    containers=$({{ dockercmd }} ps -a --format {{ format }})
+    container=$(fzf <<< "$containers")
+    echo $container
+
 
 launch-synch-panel-different:
     #!/usr/bin/env bash
