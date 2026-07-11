@@ -1,0 +1,13 @@
+layout grid
+
+# Row 1
+launch --title panel1 kitten ssh synch-camelww
+launch --location=vsplit --title panel2 kitten ssh synch-camelmw
+
+# Row 2
+launch --location=hsplit --title panel3 kitten ssh synch-rabe
+launch --location=vsplit --title panel4 kitten ssh synch-lecomte
+
+# Row 3
+launch --location=hsplit --title panel5 kitten ssh synch-frankwalder
+launch --location=vsplit --title panel6 kitten ssh synch-tuzzi
