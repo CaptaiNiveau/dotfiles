@@ -4,4 +4,4 @@
 
 ---@module 'hl'
 
-require("monitors/*")
+require("./hyprland-schiff/monitors/*")

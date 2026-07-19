@@ -51,19 +51,114 @@ hl.bind("SUPER + SHIFT + " .. down, hl.dsp.window.swap({ direction = "down" }))
 
 --### Move workspace relative ####
 
-hl.bind("SUPER + CTRL + " .. left, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh left"))
-hl.bind("SUPER + CTRL + " .. right, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh right"))
-hl.bind("SUPER + CTRL + " .. up, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh up"))
-hl.bind("SUPER + CTRL + " .. down, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh down"))
+--local function move_ws(dir, drag)
+--    local matrix_size = 3
+--    local active_ws = hl.monitor.focused().activeWorkspace.id
+--    local row = math.floor((active_ws - 1) / matrix_size)
+--    local col = (active_ws - 1) % matrix_size
+--
+--    -- apply direction clamping/cycling here
+--    -- ...
+--
+--    local ws = row * matrix_size + col + 1
+--    if drag then
+--        hl.dsp.window.move({ workspace = ws })
+--    else
+--        hl.dsp.focus({ workspace = ws })
+--    end
+--end
+
+local MATRIX_SIZE = 3
+
+local function clamp(n, max)
+    if n < 0 then return 0 end
+    if n > max then return max end
+    return n
+end
+
+local function cycle(n, size)
+    return (n + size) % size
+end
+
+local function matrix_move(dir, drag)
+    local active_ws = hl.get_active_workspace().id
+    local matrix_max = MATRIX_SIZE - 1
+
+    -- translate workspace ID to row/col
+    local row = math.floor((active_ws - 1) / MATRIX_SIZE)
+    local col = (active_ws - 1) % MATRIX_SIZE
+
+    -- default animation style
+    local anim_style = "slide"
+
+    -- apply transformation
+    if dir == "up" then
+        row = clamp(row - 1, matrix_max)
+        anim_style = "slidevert"
+    elseif dir == "down" then
+        row = clamp(row + 1, matrix_max)
+        anim_style = "slidevert"
+    elseif dir == "left" then
+        col = clamp(col - 1, matrix_max)
+    elseif dir == "right" then
+        col = clamp(col + 1, matrix_max)
+    end
+
+    -- translate back to workspace ID
+    local ws = row * MATRIX_SIZE + col + 1
+
+    -- if not dragging, don't move if another monitor already shows that workspace
+    --if not drag then
+    --    local active_monitor = hl.get_active_monitor()
+    --    local monitors = hl.get_monitors() -- or hl.monitor.list()
+    --    for _, mon in ipairs(monitors) do
+    --        if mon.id ~= active_monitor.id and mon.activeWorkspace.id == ws then
+    --            return -- workspace already visible on another monitor
+    --        end
+    --    end
+    --end
+
+    -- set directional animation temporarily
+    hl.animation({
+        leaf = "workspaces",
+        enabled = true,
+        speed = 5,
+        --curve = "overshot",
+        bezier = "overshot",
+        style = anim_style,
+    })
+
+    -- dispatch
+    if drag then
+        hl.dispatch(hl.dsp.window.move({ workspace = ws }))
+    else
+        hl.dispatch(hl.dsp.focus({ workspace = ws }))
+    end
+
+    -- reset animation to default
+    hl.animation({
+        leaf = "workspaces",
+        enabled = true,
+        speed = 5,
+        bezier = "overshot",
+        style = "slide",
+    })
+end
+
+
+hl.bind("SUPER + CTRL + " .. left,  function() matrix_move("left", false) end)
+hl.bind("SUPER + CTRL + " .. right, function() matrix_move("right", false) end)
+hl.bind("SUPER + CTRL + " .. up,    function() matrix_move("up", false) end)
+hl.bind("SUPER + CTRL + " .. down,  function() matrix_move("down", false) end)
 
 --### \Move workspace relative ####
 
 --### Drag window relative ####
 
-hl.bind("SUPER + CTRL + SHIFT + " .. left, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh left drag"))
-hl.bind("SUPER + CTRL + SHIFT + " .. right, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh right drag"))
-hl.bind("SUPER + CTRL + SHIFT + " .. up, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh up drag"))
-hl.bind("SUPER + CTRL + SHIFT + " .. down, hl.dsp.exec_cmd("~/.config/hypr/hyprland/scripts/matrix.sh down drag"))
+hl.bind("SUPER + CTRL + SHIFT + " .. left,  function() matrix_move("left", true) end)
+hl.bind("SUPER + CTRL + SHIFT + " .. right, function() matrix_move("right", true) end)
+hl.bind("SUPER + CTRL + SHIFT + " .. up,    function() matrix_move("up", true) end)
+hl.bind("SUPER + CTRL + SHIFT + " .. down,  function() matrix_move("down", true) end)
 
 --### \Drag window relative ####
 
