@@ -28,7 +28,7 @@ hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen())
 
 --### Launchers ####
 
-hl.bind("SUPER + R", hl.dsp.exec_cmd("rofi -show drun -theme local_var_HOME/.config/rofi/launchers/type-3/style-1.rasi -run-command uwsm app -- {cmd}"))
+hl.bind("SUPER + R", hl.dsp.exec_cmd("rofi -show drun -theme " .. os.getenv("HOME") .. "/.config/rofi/launchers/type-3/style-1.rasi -run-command 'uwsm app -- {cmd}'"))
 
 --### \Launchers ####
 
@@ -36,7 +36,7 @@ hl.bind("SUPER + R", hl.dsp.exec_cmd("rofi -show drun -theme local_var_HOME/.con
 
 hl.bind("SUPER + M", hl.dsp.exec_cmd("sleep 1 && pkill -9 teams-for-linux"))
 hl.bind("SUPER + M", hl.dsp.exec_cmd("uwsm stop"))
-hl.bind("SUPER + X", hl.dsp.exec_cmd("local_var_HOME/.local/custom/random-wallpaper.zsh"))
+hl.bind("SUPER + X", hl.dsp.exec_cmd("random-wallpaper.zsh"))
 
 --bind = SUPER, M, exec, loginctl terminate-session self
 
@@ -73,7 +73,7 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { locke
 
 -- autoclicker
 
-hl.bind("SUPER + X", hl.dsp.exec_cmd("$(file=/tmp/click ; if test  0  =  $(cat local_var_file ) ; then printf '1\\n' >  local_var_file ; else printf '0\\n' >  local_var_file ; fi)"))
+--hl.bind("SUPER + X", hl.dsp.exec_cmd("$(file=/tmp/click ; if test  0  =  $(cat local_var_file ) ; then printf '1\\n' >  local_var_file ; else printf '0\\n' >  local_var_file ; fi)"))
 
 -- clipboard paste
 

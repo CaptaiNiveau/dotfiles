@@ -146,19 +146,19 @@ local function matrix_move(dir, drag)
 end
 
 
-hl.bind("SUPER + CTRL + " .. left,  function() matrix_move("left", false) end)
-hl.bind("SUPER + CTRL + " .. right, function() matrix_move("right", false) end)
-hl.bind("SUPER + CTRL + " .. up,    function() matrix_move("up", false) end)
-hl.bind("SUPER + CTRL + " .. down,  function() matrix_move("down", false) end)
+hl.bind("SUPER + CTRL + " .. left,  function() matrix_move("left", false) end, { repeating = true })
+hl.bind("SUPER + CTRL + " .. right, function() matrix_move("right", false) end, { repeating = true })
+hl.bind("SUPER + CTRL + " .. up,    function() matrix_move("up", false) end, { repeating = true })
+hl.bind("SUPER + CTRL + " .. down,  function() matrix_move("down", false) end, { repeating = true })
 
 --### \Move workspace relative ####
 
 --### Drag window relative ####
 
-hl.bind("SUPER + CTRL + SHIFT + " .. left,  function() matrix_move("left", true) end)
-hl.bind("SUPER + CTRL + SHIFT + " .. right, function() matrix_move("right", true) end)
-hl.bind("SUPER + CTRL + SHIFT + " .. up,    function() matrix_move("up", true) end)
-hl.bind("SUPER + CTRL + SHIFT + " .. down,  function() matrix_move("down", true) end)
+hl.bind("SUPER + CTRL + SHIFT + " .. left,  function() matrix_move("left", true) end, { repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + " .. right, function() matrix_move("right", true) end, { repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + " .. up,    function() matrix_move("up", true) end, { repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + " .. down,  function() matrix_move("down", true) end, { repeating = true })
 
 --### \Drag window relative ####
 

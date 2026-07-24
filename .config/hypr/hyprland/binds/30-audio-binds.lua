@@ -6,9 +6,8 @@
 
 --### Volume control ####
 
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 2"), { locked = true })
-
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 2"), { locked = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 2"), { locked = true , repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 2"), { locked = true , repeating = true })
 
 --### \Volume control ####
 
@@ -17,13 +16,9 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 2"), { locked = true
 local audioplayer = "spotify"
 
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl -p spotify play-pause"), { locked = true })
-
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl -p spotify pause"), { locked = true })
-
 hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl -p spotify stop"), { locked = true })
-
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl -p spotify next"), { locked = true })
-
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl -p spotify previous"), { locked = true })
 
 --### \Direct player control ####
@@ -31,13 +26,9 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl -p spotify previous"), { loc
 --### Last player control ####
 
 hl.bind("SHIFT" .. " + " .. "XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-
 hl.bind("SHIFT" .. " + " .. "XF86AudioPause", hl.dsp.exec_cmd("playerctl pause"), { locked = true })
-
 hl.bind("SHIFT" .. " + " .. "XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"), { locked = true })
-
 hl.bind("SHIFT" .. " + " .. "XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-
 hl.bind("SHIFT" .. " + " .. "XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 --### \Last player control ####

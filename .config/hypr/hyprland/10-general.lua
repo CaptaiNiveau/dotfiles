@@ -17,21 +17,12 @@ hl.config({
             inactive_border = "rgba(333333aa)",
         },
     },
-})
-
-hl.config({
     cursor = {
         inactive_timeout = 1,
     },
-})
-
-hl.config({
     xwayland = {
         force_zero_scaling = true,
     },
-})
-
-hl.config({
     decoration = {
         rounding = 10,
         blur = {
@@ -56,7 +47,46 @@ hl.config({
         --inactive_opacity = 0.9
         dim_special = 0.2,
     },
+    animations = {
+        enabled = 1,
+        --animation=windows,1,5,bounce,slide
+    },
+    dwindle = {
+        split_width_multiplier = 1.25,
+        preserve_split = 1,
+    },
+    -- TODO: manual review: gesture = 3, "horizontal", "workspace"
+    gestures = {
+        workspace_swipe_forever = true,
+        workspace_swipe_min_speed_to_force = 5,
+        workspace_swipe_distance = 200,
+        workspace_swipe_direction_lock = false,
+    },
+    xwayland = {
+        force_zero_scaling = true,
+    },
+    misc = {
+        disable_splash_rendering = true,
+        --    no_direct_scanout = false
+        enable_anr_dialog = false,
+        vrr = 0,
+        animate_manual_resizes = false,
+        enable_swallow = true,
+        swallow_regex = "^(Alacritty|kitty|footclient)$",
+        swallow_exception_regex = "^(wev)$",
+        focus_on_activate = true,
+    },
+    debug = {
+        disable_logs = false,
+    },
+    ecosystem = {
+        no_update_news = true,
+        no_donation_nag = true,
+    },
 })
+
+    -- TODO: manual review: gesture = 3, "horizontal", "workspace"
+hl.animation({ leaf = "windows", enabled = true, speed = 5, bezier = "overshot", style = "slide" })
 
 hl.curve("slow", {
     type = "bezier",
@@ -81,68 +111,4 @@ hl.curve("slingshot", {
 hl.curve("nice", {
     type = "bezier",
     points = { { 0, 2 }, { 0.5, -1 } },
-})
-
-hl.config({
-    animations = {
-        enabled = 1,
-        --animation=windows,1,5,bounce,slide
-    },
-})
-
-hl.config({
-    dwindle = {
-        split_width_multiplier = 1.25,
-        preserve_split = 1,
-    },
-})
-
--- TODO: manual review: gesture = 3, "horizontal", "workspace"
-
-hl.config({
-    gestures = {
-        workspace_swipe_forever = true,
-        workspace_swipe_min_speed_to_force = 5,
-        workspace_swipe_distance = 200,
-        workspace_swipe_direction_lock = false,
-    },
-})
-
-hl.config({
-    xwayland = {
-        force_zero_scaling = true,
-    },
-})
-
-hl.config({
-    misc = {
-        disable_splash_rendering = true,
-        --    no_direct_scanout = false
-        enable_anr_dialog = false,
-        vrr = 0,
-        animate_manual_resizes = false,
-        enable_swallow = true,
-        swallow_regex = "^(Alacritty|kitty|footclient)$",
-        swallow_exception_regex = "^(wev)$",
-        focus_on_activate = true,
-    },
-})
-
-hl.config({
-    binds = {
-        -- pass_mouse_when_bound = false
-    },
-})
-
-hl.config({
-    debug = {
-        disable_logs = false,
-    },
-})
-
-hl.config({
-    ecosystem = {
-        no_update_news = true,
-        no_donation_nag = true,
-    },
 })
