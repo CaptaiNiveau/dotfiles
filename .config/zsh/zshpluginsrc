@@ -1,5 +1,6 @@
 # evals
 eval "$(atuin init --disable-ctrl-r zsh)"
+eval $(netbird completion zsh)
 
 # Use different history when in normal mode
 bindkey -M vicmd '^[[A' up-line-or-history
@@ -19,7 +20,7 @@ fi
 eval $(thefuck --alias)
 
 # Auto notify
-AUTO_NOTIFY_IGNORE+=("yy" "yazi" "nvim" "btop" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "batman" "dragon-drop")
+AUTO_NOTIFY_IGNORE+=("yy" "yazi" "nvim" "docker" "btop" "nvtop" "fg" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "batman" "man" "dragon-drop")
 export AUTO_NOTIFY_THRESHOLD=5
 source /usr/share/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh
 
