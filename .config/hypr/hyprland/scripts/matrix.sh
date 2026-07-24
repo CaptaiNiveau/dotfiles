@@ -23,9 +23,13 @@ active_ws=$(hyprctl monitors -j | jq '.[] | select (.focused==true) | .activeWor
 row=$((($active_ws - 1) / $matrix_size))
 col=$((($active_ws - 1) % $matrix_size))
 
-## parantheses to create arrays
+## Get monitor info
+active_monitor=$(hyprctl monitors -j | jq -r '.[] | select (.focused==true) | .name')
 othermonitors_ws="($(hyprctl monitors -j | jq '.[] | select (.focused==false) | .activeWorkspace.id'))"
 allused_ws="($(hyprctl monitors -j | jq '.[].activeWorkspace.id'))"
+
+## Store the current workspace for potential swap
+current_ws=$active_ws
 
 echo "$row : $col"
 
@@ -53,18 +57,25 @@ esac
 echo "$row : $col"
 ws=$(($row * matrix_size + $col + 1))
 
-## don't apply if we're not dragging a window and there's already a monitor on that workspace
+## Check if there's already a monitor on the target workspace
 existingmonitorindex=$allused_ws[(Ie)$ws]
 echo "================="
 echo "checking conditions for move"
-[[ ! -v 2 ]] && echo "arg 2 not empty"
-[[ $existingmonitorindex != 0 ]] && echo "existing monitor with same target workspace found: $existingmonitorindex"
-if [[ ! -v 2 && $existingmonitorindex != 0 ]] then {
-  echo "both conditions hit, exiting"
-  echo "================="
-  exit 
-} fi
-echo "conditions met, moving"
+
+if [[ ! -v 2 && $existingmonitorindex != 0 ]]; then
+    ## Find the monitor name that currently has the target workspace
+    target_monitor=$(hyprctl monitors -j | jq -r ".[] | select(.activeWorkspace.id == $ws) | .name")
+    echo "swapping workspaces: current=$current_ws on $active_monitor <-> target=$ws on $target_monitor"
+
+    ## Use swapactiveworkspace to swap the workspaces between monitors
+    hyprctl keyword animation $anim
+    hyprctl dispatch swapactiveworkspaces $active_monitor $target_monitor
+    hyprctl keyword animation $defaultanim
+    echo "================="
+    exit 0
+fi
+
+echo "conditions met, moving normally"
 echo "================="
 
 echo $ws
