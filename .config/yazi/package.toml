@@ -1,39 +1,39 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "d1c8baa"
-hash = "63b6c222bf2103b3023389dde5e2ecfe"
+rev = "bbac5e7"
+hash = "88e56a64b7ce7c4314427452343fef17"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "d1c8baa"
-hash = "3996fc74044bc44144b323686f887e1"
+rev = "bbac5e7"
+hash = "7b625412411be411153886894d9acaf"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "d1c8baa"
-hash = "bcda8eeb3f4013bae156aecabfc745e8"
+rev = "bbac5e7"
+hash = "d6f7351ea25a43c9b5f4315fa1e23935"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "d1c8baa"
-hash = "435a2af56ecfb3d05755fd5e24977d8b"
+rev = "bbac5e7"
+hash = "e3260d0b1feded8c8e3ae3afa1169e30"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "d1c8baa"
-hash = "a20327710c3a8d37ee0972128dcb6a31"
+rev = "bbac5e7"
+hash = "e0d59bd47866a6a574c74574097e5070"
 
 [[plugin.deps]]
 use = "iynaix/time-travel"
-rev = "7e0179e"
-hash = "69967963fba96295a07b68354fc91ea9"
+rev = "aaec6e2"
+hash = "3d52b2b88c91a4ece2f7ed68ff39bb7b"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "56971d0"
-hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
+rev = "bbac5e7"
+hash = "5b1c276b75cae91cbbdbe7863f39a540"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "2d73b79"
-hash = "d4c41d713b325710a9dd5ae86c3f8a5f"
+rev = "4770a34"
+hash = "7dfe41c9c3d9be76da8a844263d0bbed"
