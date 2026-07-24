@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/file=firefox.desktop
@@ -25,6 +25,9 @@ application/x-extension-ics=userapp-Thunderbird-QGV5W2.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-QGV5W2.desktop
 x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
+x-scheme-handler/bruno=bruno.desktop
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
