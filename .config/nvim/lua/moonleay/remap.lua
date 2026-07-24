@@ -1,11 +1,21 @@
 -- vim.keymap.set("n", "<C-v>", vim.cmd.Ex)
-vim.keymap.set("n", "<C-s>", vim.cmd.w)
-vim.keymap.set("i", "<C-s>", vim.cmd.w)
+--vim.keymap.set("n", "<C-s>", vim.cmd.w)
+--vim.keymap.set("i", "<C-s>", vim.cmd.w)
 
 vim.keymap.set("v", "J", ">+1<CR>gv=gv")
 vim.keymap.set("v", "K", "<-2<CR>gv=gv")
 
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
+
+
+-- Insert Mode: Delete the word backward
+vim.keymap.set('i', '<C-BS>', '<C-w>', { noremap = true })
+
+-- Normal Mode: Delete the word forward
+vim.keymap.set('n', '<C-Del>', 'dw', { noremap = true })
+
+-- Insert Mode: Delete the word forward
+vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true })
 
 
 local opts = { noremap=true, silent=true }
