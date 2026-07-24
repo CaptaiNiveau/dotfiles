@@ -108,9 +108,14 @@ run  = "cd ~/deckenburg/notes/todo-work"
 desc = "Cd to ~/deckenburg/notes/todo-work"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "e", "y" ]
+on   = [ "g", "e", "y", "y" ]
 run  = "cd ~/deckenburg/synch"
 desc = "Cd to ~/deckenburg/synch"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "e", "y", "f" ]
+run  = "cd ~/deckenburg/synch/Fullstack"
+desc = "Cd to ~/deckenburg/synch/Fullstack"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "e", "o" ]
