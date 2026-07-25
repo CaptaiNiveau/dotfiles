@@ -1,0 +1,39 @@
+[user]
+    email = c.straten@proton.me
+    name = CaptaiNiveau
+[includeIf "gitdir:~/deckenburg/synch/"]
+    path = ~/deckenburg/synch/.gitconfig_include
+[includeIf "gitdir:~/deckenburg/osna/"]
+    path = ~/deckenburg/osna/.gitconfig_include
+[init]
+    defaultBranch = main
+[core]
+    autocrlf = input
+    pager = delta
+    excludesfile = /home/captain/.config/git/gitignore
+[pull]
+    rebase = true
+[push]
+    autoSetupRemote = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictStyle = zdiff3
+[credential]
+    helper = store
+#[pager]
+#    diff = less +/^diff.*$\\
+[rebase]
+    autosquash = true
+    updateRefs = true
+
+[alias]
+    s = "!f() { rows=$(tput lines); lines=$(git status | wc -l); if [ \"$lines\" -gt \"$rows\" ]; then git status --column=nodense; else git status; fi; }; f"
+    stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
+        do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+[mergetool]
+    hideResolved = true
+[mergetool "meld"]
+    useAutoMerge = true
