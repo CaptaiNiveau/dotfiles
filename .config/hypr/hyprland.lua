@@ -1,5 +1,4 @@
-local hostname = os.getenv("HOST")
-hostname = "ultima"
+local hostname = io.popen("hostname"):read("*l")
 
-require("./hyprland-" .. hostname .. "/*")
 require("./hyprland/*")
+require("./hyprland-" .. hostname .. "/*")
