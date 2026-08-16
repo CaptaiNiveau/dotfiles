@@ -110,7 +110,6 @@ hl.window_rule({
 hl.window_rule({
     name  = "windowrule-10",
     match = {
-        class = "flameshot",
         title = "flameshot",
     },
     stay_focused = true,
