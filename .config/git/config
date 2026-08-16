@@ -10,7 +10,7 @@
 [core]
     autocrlf = input
     pager = delta
-    excludesfile = /home/captain/.config/git/gitignore
+    excludesfile = ~/.config/git/gitignore
 [pull]
     rebase = true
 [push]
