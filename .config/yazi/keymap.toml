@@ -73,6 +73,46 @@ run  = "cd ~/dumpster"
 desc = "Cd to ~/dumpster"
 
 [[mgr.prepend_keymap]]
+on   = [ "g", "m", "m" ]
+run  = "cd ~/mnt"
+desc = "Cd to ~/mnt"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "s" ]
+run  = "cd ~/mnt/synch"
+desc = "Cd to ~/mnt/synch"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "r" ]
+run  = "cd ~/mnt/synch/rabe"
+desc = "Cd to ~/mnt/synch/rabe"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "l" ]
+run  = "cd ~/mnt/synch/lecomte"
+desc = "Cd to ~/mnt/synch/lecomte"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "m" ]
+run  = "cd ~/mnt/synch/mw"
+desc = "Cd to ~/mnt/synch/mw"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "w" ]
+run  = "cd ~/mnt/synch/ww"
+desc = "Cd to ~/mnt/synch/ww"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "f" ]
+run  = "cd ~/mnt/synch/frankwalder"
+desc = "Cd to ~/mnt/synch/frankwalder"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m", "s", "t" ]
+run  = "cd ~/mnt/synch/tuzzi"
+desc = "Cd to ~/mnt/synch/tuzzi"
+
+[[mgr.prepend_keymap]]
 on   = [ "g", "e", "e" ]
 run  = "cd ~/deckenburg"
 desc = "Cd to ~/deckenburg"
