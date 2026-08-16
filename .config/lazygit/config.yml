@@ -1,7 +1,9 @@
 git:
-  pagers:
-    - pager: delta --dark --paging=never
+  diffRenderers:
+    - command: delta --dark --paging=never
       colorArg: always
-    - pager: delta --dark --paging=never --diff-so-fancy
+    - command: delta --dark --paging=never --diff-so-fancy
       colorArg: always
-    - externalDiffCommand: difft --color=always --display=inline
+    - command: difft --color=always --display=inline
+      type: extDiff
+  autoFetch: false
