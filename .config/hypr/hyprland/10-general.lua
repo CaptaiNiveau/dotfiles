@@ -56,12 +56,12 @@ hl.config({
         preserve_split = 1,
     },
     -- TODO: manual review: gesture = 3, "horizontal", "workspace"
-    gestures = {
-        workspace_swipe_forever = true,
-        workspace_swipe_min_speed_to_force = 5,
-        workspace_swipe_distance = 200,
-        workspace_swipe_direction_lock = false,
-    },
+    --gestures = {
+    --    workspace_swipe_forever = true,
+    --    workspace_swipe_min_speed_to_force = 5,
+    --    workspace_swipe_distance = 200,
+    --    workspace_swipe_direction_lock = false,
+    --},
     xwayland = {
         force_zero_scaling = true,
     },
@@ -85,8 +85,9 @@ hl.config({
     },
 })
 
-    -- TODO: manual review: gesture = 3, "horizontal", "workspace"
+-- TODO: manual review: gesture = 3, "horizontal", "workspace"
 hl.animation({ leaf = "windows", enabled = true, speed = 5, bezier = "overshot", style = "slide" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "overshot", style = "slide" })
 
 hl.curve("slow", {
     type = "bezier",
