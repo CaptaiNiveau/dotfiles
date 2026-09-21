@@ -18,6 +18,7 @@ fi
 
 # TheFuck
 eval $(thefuck --alias)
+source <(git lfs completion zsh)
 
 # Auto notify
 AUTO_NOTIFY_IGNORE+=("yy" "yazi" "nvim" "docker" "btop" "nvtop" "fg" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "batman" "man" "dragon-drop")
