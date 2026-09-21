@@ -12,6 +12,7 @@ fi
 ### autoload -Uz compinit
 ### compinit
 # End of lines added by compinstall
+source ~/.config/zsh/plugins/async.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
