@@ -16,3 +16,5 @@ _dotnet_zsh_complete()
 compdef _dotnet_zsh_complete dotnet
 
 eval $(just --completions zsh)
+
+. <(COMPLETE=zsh jj)
