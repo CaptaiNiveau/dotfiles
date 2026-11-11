@@ -1,0 +1,14 @@
+# Force X11 backend
+export QT_QPA_PLATFORM=xcb
+export GDK_BACKEND=x11
+
+# Source nix environment for tools like jj
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+# Make ros2 etc available on the CLI
+source /opt/ros/jazzy/setup.zsh
+
+# Fix inconsistent binary name of bat(cat)
+alias bat=batcat

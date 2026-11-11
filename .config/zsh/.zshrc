@@ -1,3 +1,6 @@
+# enable for profiling
+#zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,7 +23,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # History in cache directory:
 HISTSIZE=1000000
@@ -31,7 +34,12 @@ HISTFILE=~/.cache/zsh/history
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
 _comp_options+=(globdots)		# Include hidden files.
 
 # Load everything useful
@@ -44,3 +52,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 [ -f "$XDG_CONFIG_HOME/zsh/zshoptrc" ] && source "$XDG_CONFIG_HOME/zsh/zshoptrc"
 [ -f "$XDG_CONFIG_HOME/zsh/zshshortcutrc" ] && source "$XDG_CONFIG_HOME/zsh/zshshortcutrc"
 [ -f "$XDG_CONFIG_HOME/zsh/zshpluginsrc" ] && source "$XDG_CONFIG_HOME/zsh/zshpluginsrc"
+
+[ -f "$XDG_CONFIG_HOME/zsh/zshroscontainerrc" ] && [[ $CONTAINER_ID == "jazzy-nix" ]] && source "$XDG_CONFIG_HOME/zsh/zshroscontainerrc"
+
+# enable for profiling
+#zprof
