@@ -21,7 +21,7 @@ eval $(thefuck --alias)
 source <(git lfs completion zsh)
 
 # Auto notify
-AUTO_NOTIFY_IGNORE+=("yy" "yazi" "nvim" "docker" "btop" "nvtop" "fg" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "batman" "man" "dragon-drop")
+AUTO_NOTIFY_IGNORE+=("yy" "yazi" "nvim" "docker" "btop" "nvtop" "fg" "kitten" "lazyconfig" "lazygit" "dua" "ncdu" "cbonsai" "batman" "man" "dragon-drop" "blazingjj")
 export AUTO_NOTIFY_THRESHOLD=5
 source /usr/share/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh
 
