@@ -202,3 +202,8 @@ calweek year week:
     }
 
     week_to_range {{ year }} {{ week }}
+
+initros2:
+    #!/usr/bin/env zsh
+    distrobox enter jazzy -- zsh -c "source /opt/ros/jazzy/setup.zsh && exec zsh"
+    source /opt/ros/jazzy/setup.zsh
